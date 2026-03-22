@@ -1268,12 +1268,13 @@ function ghClearConfig(){ localStorage.removeItem(LS_GH); localStorage.removeIte
 // ══════════════════════════════════════════════════════
 // GITHUB API
 // ══════════════════════════════════════════════════════
-function ghHeaders(token){
-  return {
-    'Authorization': 'token ' + token,
-    'Accept': 'application/vnd.github.v3+json',
-    'Content-Type': 'application/json'
+function ghHeaders(token, isWrite){
+  const h = {
+    'Authorization': 'Bearer ' + token,
+    'Accept': 'application/vnd.github.v3+json'
   };
+  if(isWrite) h['Content-Type'] = 'application/json';
+  return h;
 }
 
 function ghFileURL(cfg){
@@ -1281,9 +1282,11 @@ function ghFileURL(cfg){
 }
 
 async function ghFetch(cfg){
-  // Returns {ok, data, sha, notFound}
   try {
-    const res = await fetch(ghFileURL(cfg), { headers: ghHeaders(cfg.token) });
+    const res = await fetch(ghFileURL(cfg), {
+      method: 'GET',
+      headers: ghHeaders(cfg.token, false)
+    });
     if(res.status === 404) return { ok: true, notFound: true };
     if(!res.ok){
       const err = await res.json().catch(()=>({}));
@@ -1300,7 +1303,6 @@ async function ghFetch(cfg){
 
 async function ghPush(cfg, data){
   const sha = localStorage.getItem(LS_SHA);
-  // Commit message must be pure ASCII — no em-dashes, no locale characters
   const now = new Date();
   const stamp = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
     +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
@@ -1312,7 +1314,7 @@ async function ghPush(cfg, data){
   try {
     const res = await fetch(ghFileURL(cfg), {
       method: 'PUT',
-      headers: ghHeaders(cfg.token),
+      headers: ghHeaders(cfg.token, true),
       body: JSON.stringify(body)
     });
     if(!res.ok){
@@ -1438,7 +1440,10 @@ async function connectGitHub(){
 
   // Test: try to read the repo (GET /repos/:owner/:repo)
   try {
-    const testRes = await fetch(`https://api.github.com/repos/${user}/${repo}`, { headers: ghHeaders(token) });
+    const testRes = await fetch(`https://api.github.com/repos/${user}/${repo}`, {
+      method: 'GET',
+      headers: ghHeaders(token, false)
+    });
     if(testRes.status === 401){ throw new Error('Token invalid or expired. Generate a new one.'); }
     if(testRes.status === 404){ throw new Error(`Repo "${user}/${repo}" not found. Check the name and ensure your token has access.`); }
     if(!testRes.ok){ throw new Error(`GitHub returned HTTP ${testRes.status}.`); }
