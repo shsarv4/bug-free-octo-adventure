@@ -1300,8 +1300,12 @@ async function ghFetch(cfg){
 
 async function ghPush(cfg, data){
   const sha = localStorage.getItem(LS_SHA);
+  // Commit message must be pure ASCII — no em-dashes, no locale characters
+  const now = new Date();
+  const stamp = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
+    +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
   const body = {
-    message: `SSC CGL progress update — ${new Date().toLocaleString('en-IN')}`,
+    message: 'SSC CGL progress update ' + stamp,
     content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
     ...(sha ? { sha } : {})
   };
@@ -1418,9 +1422,9 @@ function openSetup(){
 function closeSetup(){ document.getElementById('setupModal').classList.add('hidden'); }
 
 async function connectGitHub(){
-  const user  = document.getElementById('ghUser').value.trim();
-  const repo  = document.getElementById('ghRepo').value.trim();
-  const token = document.getElementById('ghToken').value.trim();
+  const user  = document.getElementById('ghUser').value.trim().replace(/[^\x20-\x7E]/g,'');
+  const repo  = document.getElementById('ghRepo').value.trim().replace(/[^\x20-\x7E]/g,'');
+  const token = document.getElementById('ghToken').value.trim().replace(/[^\x20-\x7E]/g,'');
   const errEl = document.getElementById('setupErr');
   errEl.style.display = 'none';
 
