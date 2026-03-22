@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SSC CGL — OPERATION TOP 5% v2.0</title>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
 <style>
 :root{--bg:#020408;--bg2:#050810;--panel:#060c18;--b:#0c1e38;--b2:#0d2444;--glow:#00d4ff;--g2:#ff6b00;--g3:#00ff88;--red:#ff2244;--gold:#ffd700;--txt:#c8e0ff;--dim:#3a5570;--dim2:#5a7090;}
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -206,7 +209,7 @@ a{color:var(--glow);text-decoration:none;}
 @media(max-width:768px){.g2,.g3,.g4,.g5{grid-template-columns:1fr;}.rp-grid{grid-template-columns:1fr;}.hdr{flex-direction:column;gap:10px;}.hstats{justify-content:center;}.tc{padding:14px;}}
 .footer{text-align:center;padding:18px;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--dim);border-top:1px solid var(--b);margin-top:28px;letter-spacing:1px;}
 
-/* ── GITHUB SYNC ── */
+/* ── FIREBASE AUTH ── */
 .sync-pill{display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.4);border:1px solid var(--b);border-radius:4px;padding:5px 12px;font-family:'Share Tech Mono',monospace;font-size:.65rem;cursor:pointer;transition:border-color .2s;white-space:nowrap;}
 .sync-pill:hover{border-color:rgba(0,212,255,.4);}
 .sync-dot{width:7px;height:7px;border-radius:50%;background:var(--dim);flex-shrink:0;transition:background .3s;}
@@ -214,29 +217,28 @@ a{color:var(--glow);text-decoration:none;}
 .sync-dot.err{background:var(--red);box-shadow:0 0 6px var(--red);}
 .sync-dot.busy{background:var(--gold);box-shadow:0 0 6px var(--gold);animation:pulse 1s infinite;}
 
-/* MODAL OVERLAY */
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
 .modal-overlay.hidden{display:none;}
-.modal-box{background:#060c18;border:1px solid var(--b);border-radius:8px;padding:32px;max-width:560px;width:100%;position:relative;box-shadow:0 0 60px rgba(0,212,255,.1);}
+.modal-box{background:#060c18;border:1px solid var(--b);border-radius:8px;padding:28px 32px;max-width:480px;width:100%;position:relative;box-shadow:0 0 60px rgba(0,212,255,.1);}
 .modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.5;}
-.modal-title{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:900;color:var(--glow);letter-spacing:3px;margin-bottom:6px;}
-.modal-sub{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);margin-bottom:22px;letter-spacing:1px;}
-.field-label{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);letter-spacing:1px;margin-bottom:5px;display:block;}
-.field-input{width:100%;background:rgba(0,0,0,.5);border:1px solid var(--b);border-radius:4px;color:var(--txt);padding:9px 12px;font-family:'Share Tech Mono',monospace;font-size:.78rem;margin-bottom:14px;outline:none;transition:border-color .2s;}
+.modal-title{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:900;color:var(--glow);letter-spacing:3px;margin-bottom:4px;}
+.modal-sub{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--dim2);margin-bottom:22px;letter-spacing:1px;}
+.field-label{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--dim2);letter-spacing:1px;margin-bottom:5px;display:block;margin-top:12px;}
+.field-input{width:100%;background:rgba(0,0,0,.5);border:1px solid var(--b);border-radius:4px;color:var(--txt);padding:9px 12px;font-family:'Share Tech Mono',monospace;font-size:.8rem;outline:none;transition:border-color .2s;}
 .field-input:focus{border-color:rgba(0,212,255,.5);}
-.field-hint{font-size:.72rem;color:var(--dim2);margin-top:-10px;margin-bottom:14px;line-height:1.5;}
-.field-hint a{color:var(--glow);}
-.modal-btn{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;padding:10px 24px;border-radius:4px;cursor:pointer;border:none;transition:all .2s;}
-.modal-btn.primary{background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.5);color:var(--glow);}
+.modal-btn{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;padding:10px 22px;border-radius:4px;cursor:pointer;border:none;transition:all .2s;margin-top:16px;}
+.modal-btn.primary{background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.5);color:var(--glow);width:100%;}
 .modal-btn.primary:hover{background:rgba(0,212,255,.25);}
-.modal-btn.secondary{background:transparent;border:1px solid var(--b);color:var(--dim2);}
-.modal-btn.secondary:hover{border-color:var(--dim);color:var(--txt);}
-.modal-err{background:rgba(255,34,68,.08);border:1px solid rgba(255,34,68,.3);border-radius:4px;padding:8px 12px;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--red);margin-top:12px;display:none;}
-.steps-list{counter-reset:steps;list-style:none;margin-bottom:20px;}
-.steps-list li{counter-increment:steps;display:flex;gap:10px;margin-bottom:10px;font-size:.8rem;color:var(--txt);}
-.steps-list li::before{content:counter(steps);font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;color:var(--glow);background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.3);border-radius:3px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.modal-btn.ghost{background:transparent;border:none;color:var(--dim2);font-size:.68rem;font-family:'Share Tech Mono',monospace;letter-spacing:0;padding:8px 0;cursor:pointer;width:100%;text-align:center;margin-top:6px;}
+.modal-btn.ghost:hover{color:var(--txt);}
+.modal-msg{border-radius:4px;padding:8px 12px;font-family:'Share Tech Mono',monospace;font-size:.7rem;margin-top:14px;display:none;}
+.modal-msg.err{background:rgba(255,34,68,.08);border:1px solid rgba(255,34,68,.3);color:var(--red);}
+.modal-msg.ok{background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.3);color:var(--g3);}
 .divider-line{height:1px;background:linear-gradient(90deg,transparent,var(--b),transparent);margin:18px 0;}
-/* SETUP BANNER (when no config) */
+.field-hint{font-size:.7rem;color:var(--dim2);margin-top:6px;line-height:1.5;}
+.field-hint a{color:var(--glow);}
+/* SETUP BANNER */
 .setup-banner{background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.25);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:.8rem;cursor:pointer;transition:background .2s;}
 .setup-banner:hover{background:rgba(255,215,0,.08);}
 .setup-banner.hidden{display:none;}
@@ -248,16 +250,16 @@ a{color:var(--glow);text-decoration:none;}
 <div class="hdr">
   <div>
     <div class="htitle glitch">⚡ OPERATION TOP 5% — SSC CGL PRE + MAINS</div>
-    <div class="hsub">MARCH END 2025 → EXAM · T-MINUS <span id="cnt" style="color:var(--g2)">---</span> DAYS · ALL PROGRESS AUTO-SAVED IN BROWSER</div>
+    <div class="hsub">MARCH END 2025 → EXAM · T-MINUS <span id="cnt" style="color:var(--g2)">---</span> DAYS · PROGRESS SYNCED TO CLOUD</div>
   </div>
   <div class="hstats">
     <div class="hpill"><span class="v" id="opct">0%</span><span class="l">OVERALL</span></div>
     <div class="hpill"><span class="v" id="odone">0</span><span class="l">TASKS DONE</span></div>
     <div class="hpill"><span class="v" style="color:var(--g2)">170+</span><span class="l">PRE TARGET</span></div>
     <div class="hpill"><span class="v" style="color:var(--gold)">MAINS</span><span class="l">FULL PLAN</span></div>
-    <div class="sync-pill" onclick="openSetup()" title="GitHub Sync — click to configure">
+    <div class="sync-pill" onclick="openAuthModal()" title="Account — click to login or logout">
       <div class="sync-dot" id="syncDot"></div>
-      <span id="syncLabel" style="color:var(--dim2)">NO SYNC</span>
+      <span id="syncLabel" style="color:var(--dim2)">NOT LOGGED IN</span>
     </div>
   </div>
 </div>
@@ -278,15 +280,15 @@ a{color:var(--glow);text-decoration:none;}
 
 <!-- ═══ INTEL ═══ -->
 <div class="tc act" id="tab-intel">
-  <div class="setup-banner" id="setupBanner" onclick="openSetup()">
+  <div class="setup-banner" id="setupBanner" onclick="openAuthModal()">
     <span style="font-size:1.2rem">☁️</span>
     <div>
-      <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:var(--gold);letter-spacing:2px;">GITHUB SYNC NOT CONFIGURED</div>
-      <div style="font-size:.75rem;color:var(--dim2);margin-top:2px;">Your progress is saved only on this device. Click here to set up GitHub sync — works across devices, never lost.</div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:var(--gold);letter-spacing:2px;">NOT LOGGED IN — PROGRESS SAVED LOCALLY ONLY</div>
+      <div style="font-size:.75rem;color:var(--dim2);margin-top:2px;">Login or create a free account to sync across all your devices automatically.</div>
     </div>
-    <span style="margin-left:auto;font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--gold);white-space:nowrap;">SETUP →</span>
+    <span style="margin-left:auto;font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--gold);white-space:nowrap;">LOGIN →</span>
   </div>
-  <div class="storage-note" id="syncOkBanner" style="display:none;">✅ GITHUB SYNC ACTIVE — progress saves to your repository automatically on every change. Accessible from any device.</div>
+  <div class="storage-note" id="syncOkBanner" style="display:none;">✅ LOGGED IN — progress auto-syncs to cloud on every change. Same account works on any device.</div>
 
   <div class="st">MISSION BRIEFING — THE REAL PICTURE</div>
   <div class="sd">// Based on PYQ analysis 2019–2024 · All shifts · Verified data</div>
@@ -1162,52 +1164,77 @@ a{color:var(--glow);text-decoration:none;}
   </div>
 </div>
 
-<!-- ═══ GITHUB SETUP MODAL ═══ -->
-<div class="modal-overlay hidden" id="setupModal">
+<!-- ═══ AUTH MODAL ═══ -->
+<div class="modal-overlay hidden" id="authModal">
   <div class="modal-box">
-    <div class="modal-title">☁ GITHUB SYNC SETUP</div>
-    <div class="modal-sub">// YOUR PROGRESS LIVES IN YOUR OWN GITHUB REPO · NO THIRD-PARTY SERVICES</div>
 
-    <div id="setupStep1">
-      <p style="font-size:.82rem;color:var(--txt);margin-bottom:16px;">This stores your entire progress (checkboxes, mocks, chapters) as a single <code style="color:var(--glow);background:rgba(0,212,255,.1);padding:1px 5px;border-radius:2px;">progress.json</code> file inside your GitHub repo. Every change auto-saves. Works on any device, any browser — as long as you open the same GitHub Pages URL.</p>
-
-      <div class="divider-line"></div>
-      <div style="font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--dim2);letter-spacing:2px;margin-bottom:12px;">ONE-TIME SETUP — 3 MINUTES</div>
-      <ol class="steps-list">
-        <li>Create a <strong>new private repo</strong> on GitHub (e.g. <code style="color:var(--glow)">ssc-cgl-tracker</code>). Private = your data stays private.</li>
-        <li>Go to <strong>Settings → Pages</strong> in that repo. Set source to <code style="color:var(--glow)">main</code> branch, <code style="color:var(--glow)">/root</code>. Save. GitHub gives you a URL like <code style="color:var(--glow)">https://yourusername.github.io/ssc-cgl-tracker</code></li>
-        <li>Upload this HTML file to the repo root, renamed to <code style="color:var(--glow)">index.html</code>.</li>
-        <li>Go to <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> → Generate a <strong>Classic token</strong> with only the <strong><code>repo</code></strong> scope checked. Copy the token (shown only once).</li>
-        <li>Enter your details below and click Connect.</li>
-      </ol>
-      <div class="divider-line"></div>
-
-      <label class="field-label">GITHUB USERNAME</label>
-      <input class="field-input" id="ghUser" type="text" placeholder="e.g. shsarv" autocomplete="off" spellcheck="false">
-
-      <label class="field-label">REPOSITORY NAME</label>
-      <input class="field-input" id="ghRepo" type="text" placeholder="e.g. ssc-cgl-tracker" autocomplete="off" spellcheck="false">
-
-      <label class="field-label">PERSONAL ACCESS TOKEN</label>
-      <input class="field-input" id="ghToken" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
-      <div class="field-hint">⚠️ Token is stored only in your browser's localStorage — never sent anywhere except GitHub's own API. Use a <strong>fine-grained token</strong> with only <strong>Contents: Read & Write</strong> permission on this one repo for maximum security.</div>
-
-      <div id="setupErr" class="modal-err"></div>
-
-      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
-        <button class="modal-btn primary" onclick="connectGitHub()">⚡ CONNECT & SYNC</button>
-        <button class="modal-btn secondary" onclick="closeSetup()">USE LOCAL ONLY</button>
-        <button class="modal-btn secondary" id="disconnectBtn" style="display:none;border-color:rgba(255,34,68,.3);color:var(--red)" onclick="disconnectGitHub()">DISCONNECT</button>
+    <!-- STEP 1: Firebase config (first time only) -->
+    <div id="stepConfig">
+      <div class="modal-title">⚡ FIRST TIME SETUP</div>
+      <div class="modal-sub">// ONE TIME ONLY · 3 MINUTES · FREE FOREVER</div>
+      <p style="font-size:.8rem;color:var(--txt);line-height:1.6;margin-bottom:14px;">
+        This app uses <strong style="color:var(--glow)">Firebase</strong> (free, by Google) to store your progress in the cloud. You need to create your own free Firebase project — your data stays in <em>your</em> account, not anyone else's.
+      </p>
+      <div style="background:rgba(0,0,0,.3);border:1px solid var(--b);border-radius:4px;padding:12px 14px;font-size:.78rem;color:var(--txt);line-height:1.8;margin-bottom:14px;">
+        1. Go to <a href="https://console.firebase.google.com" target="_blank">console.firebase.google.com</a> → <strong>Create a project</strong> (disable Analytics, not needed)<br>
+        2. Click <strong>Web</strong> icon (&lt;/&gt;) → register app → copy the <code style="color:var(--glow)">firebaseConfig</code> object<br>
+        3. In left sidebar → <strong>Authentication</strong> → Get started → enable <strong>Email/Password</strong><br>
+        4. In left sidebar → <strong>Firestore Database</strong> → Create database → Start in <strong>test mode</strong> → choose any region<br>
+        5. Paste your config below
       </div>
+      <label class="field-label">PASTE YOUR firebaseConfig OBJECT (the whole thing including curly braces)</label>
+      <textarea class="field-input" id="fbConfigInput" rows="7" placeholder='{
+  apiKey: "AIza...",
+  authDomain: "yourapp.firebaseapp.com",
+  projectId: "yourapp",
+  storageBucket: "yourapp.appspot.com",
+  messagingSenderId: "123456",
+  appId: "1:123456:web:abcdef"
+}' style="resize:vertical;font-size:.72rem;"></textarea>
+      <div class="field-hint">This config is not a secret — it's safe to store in the browser. Firebase security rules (test mode) protect your actual data.</div>
+      <div id="configMsg" class="modal-msg err"></div>
+      <button class="modal-btn primary" onclick="saveConfig()">SAVE & CONTINUE →</button>
     </div>
+
+    <!-- STEP 2: Login / Register -->
+    <div id="stepAuth" style="display:none;">
+      <div class="modal-title" id="authTitle">LOGIN</div>
+      <div class="modal-sub" id="authSub">// ENTER YOUR EMAIL & PASSWORD</div>
+
+      <label class="field-label">EMAIL</label>
+      <input class="field-input" id="authEmail" type="email" placeholder="you@example.com" autocomplete="email">
+
+      <label class="field-label">PASSWORD</label>
+      <input class="field-input" id="authPassword" type="password" placeholder="minimum 6 characters" autocomplete="current-password"
+        onkeydown="if(event.key==='Enter') doAuth()">
+
+      <div id="authMsg" class="modal-msg err"></div>
+      <button class="modal-btn primary" id="authBtn" onclick="doAuth()">LOGIN</button>
+      <button class="modal-btn ghost" id="toggleAuthMode" onclick="toggleMode()">Don't have an account? Register</button>
+      <button class="modal-btn ghost" onclick="closeAuthModal()" style="color:var(--dim);font-size:.62rem;">Use without account (local only)</button>
+    </div>
+
+    <!-- STEP 3: Logged in -->
+    <div id="stepLoggedIn" style="display:none;">
+      <div class="modal-title" style="color:var(--g3)">✅ LOGGED IN</div>
+      <div class="modal-sub">// PROGRESS SYNCS AUTOMATICALLY</div>
+      <p style="font-size:.82rem;color:var(--txt);margin:14px 0 6px;">Logged in as:</p>
+      <div id="loggedEmail" style="font-family:'Share Tech Mono',monospace;font-size:.85rem;color:var(--glow);margin-bottom:20px;"></div>
+      <div class="divider-line"></div>
+      <p style="font-size:.78rem;color:var(--dim2);margin-bottom:14px;">Your progress saves automatically to Firestore on every change. Open this page on any device, log in with the same account, and your progress appears instantly.</p>
+      <button class="modal-btn primary" onclick="closeAuthModal()">CLOSE</button>
+      <button class="modal-btn ghost" onclick="doLogout()" style="color:var(--red);">Logout from this device</button>
+      <button class="modal-btn ghost" onclick="resetFirebaseConfig()" style="color:var(--dim);font-size:.62rem;">Reset Firebase config</button>
+    </div>
+
   </div>
 </div>
 
-<div class="footer">OPERATION TOP 5% v2.0 · PRE + MAINS COMPLETE PLAN · BUILT ON REAL PYQ DATA · SARV · GODSPEED ⚡</div>
+<div class="footer">OPERATION TOP 5% v2.0 · PRE + MAINS · FIREBASE CLOUD SYNC · SARV · GODSPEED ⚡</div>
 
 <script>
 // ══════════════════════════════════════════════════════
-// STATE
+// CHAPTER DATA
 // ══════════════════════════════════════════════════════
 const CHD = {
   q:[
@@ -1245,256 +1272,264 @@ const CHD = {
     ['Indian Economy + Budget','ECON'],['RBI + Banking + Fiscal Policy','ECON'],
     ['Inventions & Computers','MISC'],['Sports/Awards/National Symbols','MISC'],
     ['Important Days + Static GK','MISC'],
-    ['Current Affairs Jan–Jul 2025 (Indologous)','CA'],
-    ['GK PYQs — Pinnacle Complete Set','PYQ']
+    ['Current Affairs Jan-Jul 2025 (Indologous)','CA'],
+    ['GK PYQs - Pinnacle Complete Set','PYQ']
   ]
 };
 
+// ══════════════════════════════════════════════════════
+// STATE & STORAGE
+// ══════════════════════════════════════════════════════
 let ST = {};
-const LS_STATE = 'cgl_v2';
-const LS_GH    = 'cgl_github_cfg';
-const LS_SHA   = 'cgl_github_sha';
-const GH_FILE  = 'progress.json';
+let fbApp = null, fbAuth = null, fbDb = null, currentUser = null;
+let saveTimer = null;
+const LS_KEY    = 'cgl_v2';
+const LS_FBCFG  = 'cgl_fb_config';
 
-// ── local fallback ──
-function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS_STATE)||'{}'); }catch(e){ return {}; } }
-function lsSave(){ localStorage.setItem(LS_STATE, JSON.stringify(ST)); }
-
-// ── github config ──
-function ghConfig(){ try{ return JSON.parse(localStorage.getItem(LS_GH)||'null'); }catch(e){ return null; } }
-function ghSetConfig(c){ localStorage.setItem(LS_GH, JSON.stringify(c)); }
-function ghClearConfig(){ localStorage.removeItem(LS_GH); localStorage.removeItem(LS_SHA); }
+function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS_KEY)||'{}'); }catch(e){ return {}; } }
+function lsSave(){ localStorage.setItem(LS_KEY, JSON.stringify(ST)); }
 
 // ══════════════════════════════════════════════════════
-// GITHUB API
+// FIREBASE INIT
 // ══════════════════════════════════════════════════════
-function ghHeaders(token, isWrite){
-  const h = {
-    'Authorization': 'Bearer ' + token,
-    'Accept': 'application/vnd.github.v3+json'
-  };
-  if(isWrite) h['Content-Type'] = 'application/json';
-  return h;
+function getStoredConfig(){
+  try{ return JSON.parse(localStorage.getItem(LS_FBCFG)||'null'); }catch(e){ return null; }
 }
 
-function ghFileURL(cfg){
-  return `https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${GH_FILE}`;
-}
-
-async function ghFetch(cfg){
+function initFirebase(cfg){
   try {
-    const res = await fetch(ghFileURL(cfg), {
-      method: 'GET',
-      headers: ghHeaders(cfg.token, false)
-    });
-    if(res.status === 404) return { ok: true, notFound: true };
-    if(!res.ok){
-      const err = await res.json().catch(()=>({}));
-      return { ok: false, error: err.message || `HTTP ${res.status}` };
+    // Prevent double-init
+    if(firebase.apps.length === 0){
+      fbApp = firebase.initializeApp(cfg);
+    } else {
+      fbApp = firebase.apps[0];
     }
-    const json = await res.json();
-    const sha = json.sha;
-    const content = JSON.parse(atob(json.content.replace(/\n/g,'')));
-    return { ok: true, data: content, sha };
-  } catch(e) {
-    return { ok: false, error: e.message };
-  }
-}
-
-async function ghPush(cfg, data){
-  const sha = localStorage.getItem(LS_SHA);
-  const now = new Date();
-  const stamp = now.getFullYear()+'-'+String(now.getMonth()+1).padStart(2,'0')+'-'+String(now.getDate()).padStart(2,'0')
-    +' '+String(now.getHours()).padStart(2,'0')+':'+String(now.getMinutes()).padStart(2,'0');
-  const body = {
-    message: 'SSC CGL progress update ' + stamp,
-    content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
-    ...(sha ? { sha } : {})
-  };
-  try {
-    const res = await fetch(ghFileURL(cfg), {
-      method: 'PUT',
-      headers: ghHeaders(cfg.token, true),
-      body: JSON.stringify(body)
-    });
-    if(!res.ok){
-      const err = await res.json().catch(()=>({}));
-      return { ok: false, error: err.message || `HTTP ${res.status}` };
-    }
-    const json = await res.json();
-    // Update SHA (needed for next write — GitHub requires current SHA to update a file)
-    if(json.content && json.content.sha) localStorage.setItem(LS_SHA, json.content.sha);
-    return { ok: true };
-  } catch(e) {
-    return { ok: false, error: e.message };
+    fbAuth = firebase.auth();
+    fbDb   = firebase.firestore();
+    return true;
+  } catch(e){
+    console.error('Firebase init failed:', e);
+    return false;
   }
 }
 
 // ══════════════════════════════════════════════════════
-// SYNC STATUS UI
+// FIRESTORE SYNC
+// ══════════════════════════════════════════════════════
+async function loadFromCloud(){
+  if(!fbDb || !currentUser) return;
+  try {
+    const doc = await fbDb.collection('progress').doc(currentUser.uid).get();
+    if(doc.exists){
+      const cloudData = doc.data().state || {};
+      // Cloud wins if it has more task completions
+      const cloudTasks = Object.keys(cloudData).filter(k=>k.startsWith('task_')).length;
+      const localTasks = Object.keys(ST).filter(k=>k.startsWith('task_')).length;
+      if(cloudTasks >= localTasks){
+        ST = cloudData;
+        lsSave();
+      } else {
+        // Local has more — push to cloud
+        await saveToCloud();
+      }
+    } else {
+      // First login ever — push local state
+      await saveToCloud();
+    }
+  } catch(e){
+    console.warn('Cloud load failed:', e.message);
+  }
+}
+
+async function saveToCloud(){
+  if(!fbDb || !currentUser) return;
+  try {
+    await fbDb.collection('progress').doc(currentUser.uid).set({ state: ST, updated: Date.now() });
+  } catch(e){
+    console.warn('Cloud save failed:', e.message);
+    setSyncStatus('err', 'SAVE ERR');
+  }
+}
+
+function scheduleSave(){
+  lsSave();
+  if(!currentUser) return;
+  clearTimeout(saveTimer);
+  setSyncStatus('busy', 'SAVING...');
+  saveTimer = setTimeout(async ()=>{
+    await saveToCloud();
+    setSyncStatus('ok', 'SYNCED');
+  }, 800);
+}
+
+// ══════════════════════════════════════════════════════
+// SYNC STATUS
 // ══════════════════════════════════════════════════════
 function setSyncStatus(state, text){
   const dot = document.getElementById('syncDot');
   const lbl = document.getElementById('syncLabel');
-  dot.className = 'sync-dot' + (state === 'ok' ? ' ok' : state === 'err' ? ' err' : state === 'busy' ? ' busy' : '');
+  const states = { ok:'ok', err:'err', busy:'busy' };
+  dot.className = 'sync-dot' + (states[state] ? ' '+state : '');
   lbl.textContent = text;
-  lbl.style.color = state === 'ok' ? 'var(--g3)' : state === 'err' ? 'var(--red)' : state === 'busy' ? 'var(--gold)' : 'var(--dim2)';
+  lbl.style.color = state==='ok' ? 'var(--g3)' : state==='err' ? 'var(--red)' : state==='busy' ? 'var(--gold)' : 'var(--dim2)';
 }
 
-function updateBanners(){
-  const cfg = ghConfig();
-  const banner = document.getElementById('setupBanner');
-  const okBanner = document.getElementById('syncOkBanner');
-  if(cfg){ banner.classList.add('hidden'); okBanner.style.display='flex'; }
-  else   { banner.classList.remove('hidden'); okBanner.style.display='none'; }
+function updateBanners(loggedIn){
+  document.getElementById('setupBanner').classList.toggle('hidden', loggedIn);
+  document.getElementById('syncOkBanner').style.display = loggedIn ? 'flex' : 'none';
 }
 
 // ══════════════════════════════════════════════════════
-// DEBOUNCED AUTO-SAVE TO GITHUB
+// AUTH MODAL
 // ══════════════════════════════════════════════════════
-let saveTimer = null;
-async function scheduleSave(){
-  lsSave(); // always save local immediately
-  const cfg = ghConfig();
-  if(!cfg) return;
-  clearTimeout(saveTimer);
-  setSyncStatus('busy', 'SAVING…');
-  saveTimer = setTimeout(async ()=>{
-    const res = await ghPush(cfg, ST);
-    if(res.ok){ setSyncStatus('ok', 'SYNCED'); }
-    else       { setSyncStatus('err', 'SYNC ERR'); console.warn('GitHub save failed:', res.error); }
-  }, 800); // 800ms debounce — batches rapid checkbox ticking
+let authMode = 'login'; // 'login' | 'register'
+
+function openAuthModal(){
+  const cfg = getStoredConfig();
+  document.getElementById('stepConfig').style.display   = cfg ? 'none' : 'block';
+  document.getElementById('stepAuth').style.display     = (cfg && !currentUser) ? 'block' : 'none';
+  document.getElementById('stepLoggedIn').style.display = currentUser ? 'block' : 'none';
+  if(currentUser) document.getElementById('loggedEmail').textContent = currentUser.email;
+  document.getElementById('authModal').classList.remove('hidden');
 }
 
-// ══════════════════════════════════════════════════════
-// INITIAL LOAD FROM GITHUB
-// ══════════════════════════════════════════════════════
-async function initialLoad(){
-  ST = lsLoad(); // start with local data immediately so UI feels instant
-  const cfg = ghConfig();
-  if(!cfg){ setSyncStatus('none', 'NO SYNC'); updateBanners(); return; }
-
-  setSyncStatus('busy', 'LOADING…');
-  updateBanners();
-  const res = await ghFetch(cfg);
-  if(!res.ok){
-    setSyncStatus('err', 'LOAD ERR');
-    console.warn('GitHub load failed:', res.error);
-    return;
-  }
-  if(res.notFound){
-    // First time — push current local state to create the file
-    setSyncStatus('busy', 'INIT…');
-    const push = await ghPush(cfg, ST);
-    setSyncStatus(push.ok ? 'ok' : 'err', push.ok ? 'SYNCED' : 'PUSH ERR');
-    return;
-  }
-  // Merge: GitHub is source of truth — but only if it has MORE data
-  // (prevents wiping local data if someone opens on a fresh browser first)
-  const ghTasks  = Object.keys(res.data).filter(k=>k.startsWith('task_')).length;
-  const lsTasks  = Object.keys(ST).filter(k=>k.startsWith('task_')).length;
-  if(ghTasks >= lsTasks){
-    ST = res.data;
-    if(res.sha) localStorage.setItem(LS_SHA, res.sha);
-    lsSave();
-  } else {
-    // Local has more data — push local to GitHub to reconcile
-    await ghPush(cfg, ST);
-    if(res.sha) localStorage.setItem(LS_SHA, res.sha);
-  }
-  setSyncStatus('ok', 'SYNCED');
+function closeAuthModal(){
+  document.getElementById('authModal').classList.add('hidden');
 }
 
-// ══════════════════════════════════════════════════════
-// SETUP MODAL
-// ══════════════════════════════════════════════════════
-function openSetup(){
-  const modal = document.getElementById('setupModal');
-  modal.classList.remove('hidden');
-  const cfg = ghConfig();
-  if(cfg){
-    document.getElementById('ghUser').value  = cfg.user  || '';
-    document.getElementById('ghRepo').value  = cfg.repo  || '';
-    document.getElementById('ghToken').value = cfg.token || '';
-    document.getElementById('disconnectBtn').style.display = 'inline-block';
-  } else {
-    document.getElementById('disconnectBtn').style.display = 'none';
-  }
+function toggleMode(){
+  authMode = authMode === 'login' ? 'register' : 'login';
+  const isLogin = authMode === 'login';
+  document.getElementById('authTitle').textContent = isLogin ? 'LOGIN' : 'CREATE ACCOUNT';
+  document.getElementById('authSub').textContent   = isLogin ? '// ENTER YOUR EMAIL & PASSWORD' : '// CHOOSE AN EMAIL & PASSWORD';
+  document.getElementById('authBtn').textContent   = isLogin ? 'LOGIN' : 'CREATE ACCOUNT';
+  document.getElementById('toggleAuthMode').textContent = isLogin ? "Don't have an account? Register" : 'Already have an account? Login';
+  document.getElementById('authMsg').style.display = 'none';
 }
-function closeSetup(){ document.getElementById('setupModal').classList.add('hidden'); }
 
-async function connectGitHub(){
-  const user  = document.getElementById('ghUser').value.trim().replace(/[^\x20-\x7E]/g,'');
-  const repo  = document.getElementById('ghRepo').value.trim().replace(/[^\x20-\x7E]/g,'');
-  const token = document.getElementById('ghToken').value.trim().replace(/[^\x20-\x7E]/g,'');
-  const errEl = document.getElementById('setupErr');
-  errEl.style.display = 'none';
+async function doAuth(){
+  const email = document.getElementById('authEmail').value.trim();
+  const pass  = document.getElementById('authPassword').value;
+  const msgEl = document.getElementById('authMsg');
+  msgEl.style.display = 'none';
+  msgEl.className = 'modal-msg err';
 
-  if(!user || !repo || !token){
-    errEl.textContent = '⚠ All three fields are required.';
-    errEl.style.display = 'block'; return;
+  if(!email || !pass){
+    msgEl.textContent = 'Enter both email and password.';
+    msgEl.style.display = 'block'; return;
   }
 
-  const cfg = { user, repo, token };
-  setSyncStatus('busy', 'TESTING…');
-
-  // Test: try to read the repo (GET /repos/:owner/:repo)
+  setSyncStatus('busy', 'CONNECTING...');
   try {
-    const testRes = await fetch(`https://api.github.com/repos/${user}/${repo}`, {
-      method: 'GET',
-      headers: ghHeaders(token, false)
-    });
-    if(testRes.status === 401){ throw new Error('Token invalid or expired. Generate a new one.'); }
-    if(testRes.status === 404){ throw new Error(`Repo "${user}/${repo}" not found. Check the name and ensure your token has access.`); }
-    if(!testRes.ok){ throw new Error(`GitHub returned HTTP ${testRes.status}.`); }
+    if(authMode === 'login'){
+      await fbAuth.signInWithEmailAndPassword(email, pass);
+    } else {
+      await fbAuth.createUserWithEmailAndPassword(email, pass);
+    }
+    // onAuthStateChanged handles the rest
   } catch(e){
-    errEl.textContent = '⚠ ' + e.message;
-    errEl.style.display = 'block';
     setSyncStatus('err', 'AUTH ERR');
-    return;
+    // Make Firebase error messages human-readable
+    const friendly = {
+      'auth/user-not-found':       'No account found with this email.',
+      'auth/wrong-password':       'Incorrect password.',
+      'auth/invalid-email':        'Invalid email address.',
+      'auth/email-already-in-use': 'An account with this email already exists. Try logging in.',
+      'auth/weak-password':        'Password must be at least 6 characters.',
+      'auth/invalid-credential':   'Email or password is incorrect.',
+      'auth/too-many-requests':    'Too many attempts. Try again in a few minutes.',
+    };
+    msgEl.textContent = friendly[e.code] || e.message;
+    msgEl.style.display = 'block';
   }
-
-  // Save config
-  ghSetConfig(cfg);
-
-  // Push current state
-  setSyncStatus('busy', 'PUSHING…');
-  const push = await ghPush(cfg, ST);
-  if(!push.ok){
-    errEl.textContent = '⚠ Connected but failed to write file: ' + push.error + '. Make sure your token has "repo" or "Contents: Write" permission.';
-    errEl.style.display = 'block';
-    setSyncStatus('err', 'WRITE ERR');
-    return;
-  }
-
-  setSyncStatus('ok', 'SYNCED');
-  updateBanners();
-  document.getElementById('disconnectBtn').style.display = 'inline-block';
-  errEl.style.display = 'none';
-
-  // Show success in error div (reuse for green message)
-  errEl.style.display = 'block';
-  errEl.style.background = 'rgba(0,255,136,.06)';
-  errEl.style.borderColor = 'rgba(0,255,136,.3)';
-  errEl.style.color = 'var(--g3)';
-  errEl.textContent = '✅ Connected! Your progress is now synced to GitHub. Close this dialog.';
 }
 
-function disconnectGitHub(){
-  if(!confirm('Disconnect GitHub sync? Your local progress is kept, but will no longer auto-save to GitHub.')) return;
-  ghClearConfig();
-  setSyncStatus('none', 'NO SYNC');
-  updateBanners();
-  document.getElementById('disconnectBtn').style.display = 'none';
-  const errEl = document.getElementById('setupErr');
-  errEl.style.cssText = '';
-  errEl.style.display = 'none';
+async function doLogout(){
+  await fbAuth.signOut();
+  closeAuthModal();
 }
 
-// Close modal on overlay click
-document.getElementById('setupModal').addEventListener('click', function(e){
-  if(e.target === this) closeSetup();
-});
+// ══════════════════════════════════════════════════════
+// CONFIG SAVE
+// ══════════════════════════════════════════════════════
+function saveConfig(){
+  const raw = document.getElementById('fbConfigInput').value.trim();
+  const msgEl = document.getElementById('configMsg');
+  msgEl.style.display = 'none';
+
+  // Parse the pasted config — handle both JS object notation and JSON
+  let cfg;
+  try {
+    // Replace JS-style keys (no quotes) with JSON-style
+    const jsonStr = raw
+      .replace(/\/\/.*$/gm, '')          // strip // comments
+      .replace(/,\s*([}\]])/g, '$1')     // trailing commas
+      .replace(/([{,]\s*)(\w+)(\s*:)/g, '$1"$2"$3'); // unquoted keys
+    cfg = JSON.parse(jsonStr);
+  } catch(e){
+    msgEl.textContent = 'Could not parse config. Copy the entire firebaseConfig object including the { } braces.';
+    msgEl.style.display = 'block'; return;
+  }
+
+  if(!cfg.apiKey || !cfg.projectId){
+    msgEl.textContent = 'Config missing apiKey or projectId. Make sure you copied the full object.';
+    msgEl.style.display = 'block'; return;
+  }
+
+  const ok = initFirebase(cfg);
+  if(!ok){
+    msgEl.textContent = 'Firebase init failed. Check your config values and try again.';
+    msgEl.style.display = 'block'; return;
+  }
+
+  localStorage.setItem(LS_FBCFG, JSON.stringify(cfg));
+
+  // Move to auth step
+  document.getElementById('stepConfig').style.display = 'none';
+  document.getElementById('stepAuth').style.display   = 'block';
+
+  // Set up auth listener now
+  setupAuthListener();
+}
+
+function resetFirebaseConfig(){
+  if(!confirm('Remove Firebase config? You will need to paste it again to re-enable sync.')) return;
+  localStorage.removeItem(LS_FBCFG);
+  fbApp = null; fbAuth = null; fbDb = null; currentUser = null;
+  setSyncStatus('none', 'NOT LOGGED IN');
+  updateBanners(false);
+  closeAuthModal();
+}
+
+// ══════════════════════════════════════════════════════
+// AUTH STATE LISTENER
+// ══════════════════════════════════════════════════════
+function setupAuthListener(){
+  if(!fbAuth) return;
+  fbAuth.onAuthStateChanged(async (user)=>{
+    currentUser = user;
+    if(user){
+      setSyncStatus('busy', 'LOADING...');
+      await loadFromCloud();
+      // Re-render everything with cloud data
+      renderCh();
+      loadTasks();
+      refreshHeader();
+      renderMocks();
+      setSyncStatus('ok', 'SYNCED');
+      updateBanners(true);
+      // If modal is open, show logged-in step
+      if(!document.getElementById('authModal').classList.contains('hidden')){
+        document.getElementById('stepAuth').style.display     = 'none';
+        document.getElementById('stepLoggedIn').style.display = 'block';
+        document.getElementById('loggedEmail').textContent    = user.email;
+      }
+    } else {
+      setSyncStatus('none', 'NOT LOGGED IN');
+      updateBanners(false);
+    }
+  });
+}
 
 // ══════════════════════════════════════════════════════
 // TABS
@@ -1506,11 +1541,9 @@ function showTab(id){
   event.currentTarget.classList.add('act');
 }
 
-// ── WEEKS ──
 function tw(hdr){
   const body = hdr.nextElementSibling;
-  const open = body.classList.toggle('open');
-  hdr.classList.toggle('open', open);
+  body.classList.toggle('open');
 }
 
 // ══════════════════════════════════════════════════════
@@ -1526,7 +1559,9 @@ function upd(cb){
 
 function loadTasks(){
   [...document.querySelectorAll('.tc2')].forEach((cb,i)=>{
-    if(ST['task_'+i]){ cb.checked=true; cb.nextElementSibling.classList.add('done'); }
+    const val = ST['task_'+i];
+    cb.checked = !!val;
+    cb.nextElementSibling.classList.toggle('done', !!val);
   });
 }
 
@@ -1543,15 +1578,15 @@ function refreshHeader(){
 // ══════════════════════════════════════════════════════
 function renderCh(){
   [['q','cq','rq','rqt','qcc'],['r','cr','rr','rrt','rcc'],['e','ce','re','ret','ecc'],['g','cg','rg','rgt','gcc']].forEach(([k,cid,rid,tid,cnt])=>{
-    const container = document.getElementById(cid);
-    if(!container) return;
-    container.innerHTML='';
+    const el = document.getElementById(cid);
+    if(!el) return;
+    el.innerHTML = '';
     CHD[k].forEach(([name,tag],i)=>{
       const done = ST['ch_'+k+'_'+i]==='1';
       const d = document.createElement('div');
-      d.className='chi'+(done?' dn':'');
-      d.innerHTML=`<input type="checkbox" class="chcb" ${done?'checked':''} onchange="togCh('${k}',${i},this)"><span class="chn">${name}</span><span class="cht">${tag}</span>`;
-      container.appendChild(d);
+      d.className = 'chi'+(done?' dn':'');
+      d.innerHTML = `<input type="checkbox" class="chcb" ${done?'checked':''} onchange="togCh('${k}',${i},this)"><span class="chn">${name}</span><span class="cht">${tag}</span>`;
+      el.appendChild(d);
     });
   });
   refreshChProgress();
@@ -1567,14 +1602,14 @@ function togCh(k,i,cb){
 function refreshChProgress(){
   [['q','rq','rqt','qcc','pq','pqp'],['r','rr','rrt','rcc','pr','prp'],['e','re','ret','ecc','pe','pep'],['g','rg','rgt','gcc','pg','pgp']].forEach(([k,rid,tid,cnt,bid,bpid])=>{
     const total = CHD[k].length;
-    const done = CHD[k].filter((_,i)=>ST['ch_'+k+'_'+i]==='1').length;
-    const pct = Math.round(done/total*100);
-    const offset = 163-(163*pct/100);
-    const ring = document.getElementById(rid);  if(ring) ring.style.strokeDashoffset=offset;
-    const txt  = document.getElementById(tid);  if(txt)  txt.textContent=pct+'%';
-    const cnt2 = document.getElementById(cnt);  if(cnt2) cnt2.textContent=done+' / '+total+(k==='g'?' topics':' chapters');
-    const bar  = document.getElementById(bid);  if(bar)  bar.style.width=pct+'%';
-    const bpct = document.getElementById(bpid); if(bpct) bpct.textContent=pct+'%';
+    const done  = CHD[k].filter((_,i)=>ST['ch_'+k+'_'+i]==='1').length;
+    const pct   = Math.round(done/total*100);
+    const off   = 163-(163*pct/100);
+    const r=document.getElementById(rid); if(r) r.style.strokeDashoffset=off;
+    const t=document.getElementById(tid); if(t) t.textContent=pct+'%';
+    const c=document.getElementById(cnt); if(c) c.textContent=done+' / '+total+(k==='g'?' topics':' chapters');
+    const b=document.getElementById(bid); if(b) b.style.width=pct+'%';
+    const p=document.getElementById(bpid);if(p) p.textContent=pct+'%';
   });
 }
 
@@ -1596,7 +1631,7 @@ function addMock(){
     setTimeout(()=>input.style.borderColor='',1000); return;
   }
   const mocks = ST.mocks||[];
-  mocks.push({ s: val, d: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}) });
+  mocks.push({ s:val, d:new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}) });
   ST.mocks = mocks;
   input.value = '';
   renderMocks();
@@ -1605,7 +1640,7 @@ function addMock(){
 
 function clearMocks(){
   if(!confirm('Clear all mock scores?')) return;
-  ST.mocks=[];
+  ST.mocks = [];
   renderMocks();
   scheduleSave();
 }
@@ -1630,8 +1665,8 @@ function renderMocks(){
   }).join('');
   if(mocks.length>=2){
     const avg = Math.round(mocks.reduce((a,m)=>a+m.s,0)/mocks.length);
-    const d = mocks[mocks.length-1].s - mocks[mocks.length-2].s;
-    tr.innerHTML=`<span style="color:var(--dim2)">AVG </span><span style="color:var(--glow)">${avg}</span> &nbsp; <span style="color:var(--dim2)">TREND </span><span style="color:${d>=0?'var(--g3)':'var(--red)'}">${d>=0?'▲':'▼'}${Math.abs(d)}</span> &nbsp; <span style="color:var(--dim2)">BEST </span><span style="color:var(--gold)">${Math.max(...mocks.map(m=>m.s))}</span>`;
+    const d   = mocks[mocks.length-1].s - mocks[mocks.length-2].s;
+    tr.innerHTML = `<span style="color:var(--dim2)">AVG </span><span style="color:var(--glow)">${avg}</span>&nbsp;&nbsp;<span style="color:var(--dim2)">TREND </span><span style="color:${d>=0?'var(--g3)':'var(--red)'}">${d>=0?'▲':'▼'}${Math.abs(d)}</span>&nbsp;&nbsp;<span style="color:var(--dim2)">BEST </span><span style="color:var(--gold)">${Math.max(...mocks.map(m=>m.s))}</span>`;
   }
 }
 
@@ -1639,8 +1674,7 @@ function renderMocks(){
 // COUNTDOWN
 // ══════════════════════════════════════════════════════
 function updateCountdown(){
-  const exam = new Date('2025-07-20');
-  const diff = Math.ceil((exam - new Date())/(1000*60*60*24));
+  const diff = Math.ceil((new Date('2025-07-20') - new Date())/(864e5));
   const el = document.getElementById('cnt');
   if(el) el.textContent = diff>0 ? diff : 'EXAM DAY';
 }
@@ -1648,15 +1682,30 @@ function updateCountdown(){
 // ══════════════════════════════════════════════════════
 // BOOT
 // ══════════════════════════════════════════════════════
-document.addEventListener('DOMContentLoaded', async ()=>{
-  await initialLoad();       // fetch from GitHub (or use local)
-  renderCh();                // render chapter checkboxes from ST
-  loadTasks();               // restore task checkboxes
-  refreshHeader();           // update progress bars + counts
-  renderMocks();             // render mock score log
-  updateBanners();           // show/hide setup banner
+document.addEventListener('DOMContentLoaded', ()=>{
+  // Load local state immediately so UI is instant
+  ST = lsLoad();
+
+  // Try to init Firebase from stored config
+  const cfg = getStoredConfig();
+  if(cfg){
+    const ok = initFirebase(cfg);
+    if(ok) setupAuthListener(); // will trigger onAuthStateChanged → cloud load
+  }
+
+  // Render UI from local state right away (cloud load will refresh if user is logged in)
+  renderCh();
+  loadTasks();
+  refreshHeader();
+  renderMocks();
+  updateBanners(false); // will be updated by auth listener if logged in
   updateCountdown();
   setInterval(updateCountdown, 60000);
+
+  // Close modal on overlay click
+  document.getElementById('authModal').addEventListener('click', function(e){
+    if(e.target === this) closeAuthModal();
+  });
 });
 </script>
 </body>
