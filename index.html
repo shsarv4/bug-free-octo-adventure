@@ -1,0 +1,1654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SSC CGL — OPERATION TOP 5% v2.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&family=Rajdhani:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#020408;--bg2:#050810;--panel:#060c18;--b:#0c1e38;--b2:#0d2444;--glow:#00d4ff;--g2:#ff6b00;--g3:#00ff88;--red:#ff2244;--gold:#ffd700;--txt:#c8e0ff;--dim:#3a5570;--dim2:#5a7090;}
+*{margin:0;padding:0;box-sizing:border-box;}
+body{background:var(--bg);color:var(--txt);font-family:'Rajdhani',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden;}
+body::before{content:'';position:fixed;top:0;left:0;right:0;bottom:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,212,255,.012) 2px,rgba(0,212,255,.012) 4px);pointer-events:none;z-index:9999;}
+
+/* HEADER */
+.hdr{background:linear-gradient(135deg,#020c1a 0%,#040f24 50%,#020c1a 100%);border-bottom:2px solid var(--glow);padding:14px 28px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100;box-shadow:0 0 50px rgba(0,212,255,.12);}
+.htitle{font-family:'Orbitron',sans-serif;font-size:1.15rem;font-weight:900;color:var(--glow);text-shadow:0 0 25px var(--glow);letter-spacing:3px;}
+.hsub{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);letter-spacing:2px;margin-top:2px;}
+.hstats{display:flex;gap:14px;flex-wrap:wrap;}
+.hpill{background:rgba(0,212,255,.07);border:1px solid rgba(0,212,255,.25);border-radius:4px;padding:5px 12px;text-align:center;font-family:'Share Tech Mono',monospace;}
+.hpill .v{color:var(--glow);font-size:1rem;font-weight:bold;display:block;}
+.hpill .l{color:var(--dim2);font-size:.6rem;letter-spacing:1px;}
+
+/* TABS */
+.nav{display:flex;background:var(--bg2);border-bottom:1px solid var(--b);overflow-x:auto;scrollbar-width:none;padding:0 12px;}
+.nav::-webkit-scrollbar{display:none;}
+.tbtn{font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:1.5px;color:var(--dim2);background:none;border:none;border-bottom:3px solid transparent;padding:12px 16px;cursor:pointer;white-space:nowrap;transition:all .2s;text-transform:uppercase;}
+.tbtn:hover{color:var(--glow);}
+.tbtn.act{color:var(--glow);border-bottom-color:var(--glow);text-shadow:0 0 10px var(--glow);}
+
+/* CONTENT */
+.tc{display:none;padding:22px 26px;max-width:1350px;margin:0 auto;}
+.tc.act{display:block;}
+
+/* PRIMITIVES */
+.st{font-family:'Orbitron',sans-serif;font-size:.8rem;font-weight:700;color:var(--glow);letter-spacing:3px;text-transform:uppercase;margin-bottom:4px;display:flex;align-items:center;gap:10px;}
+.st::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--glow),transparent);opacity:.25;}
+.sd{font-size:.78rem;color:var(--dim2);font-family:'Share Tech Mono',monospace;margin-bottom:18px;}
+
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.g5{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;}
+
+.panel{background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:16px;position:relative;overflow:hidden;}
+.panel::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.35;}
+.panel.o::before{background:linear-gradient(90deg,transparent,var(--g2),transparent);}
+.panel.g::before{background:linear-gradient(90deg,transparent,var(--g3),transparent);}
+.panel.r::before{background:linear-gradient(90deg,transparent,var(--red),transparent);}
+.panel.gold::before{background:linear-gradient(90deg,transparent,var(--gold),transparent);}
+.ptit{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--glow);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.panel.o .ptit{color:var(--g2);}
+.panel.g .ptit{color:var(--g3);}
+.panel.r .ptit{color:var(--red);}
+.panel.gold .ptit{color:var(--gold);}
+
+.cl{border-left:3px solid var(--glow);background:rgba(0,212,255,.04);padding:10px 14px;border-radius:0 5px 5px 0;margin:10px 0;font-size:.82rem;}
+.cl.o{border-left-color:var(--g2);background:rgba(255,107,0,.04);}
+.cl.g{border-left-color:var(--g3);background:rgba(0,255,136,.04);}
+.cl.gold{border-left-color:var(--gold);background:rgba(255,215,0,.04);}
+.cl.r{border-left-color:var(--red);background:rgba(255,34,68,.04);}
+.cl strong{color:var(--glow);}
+.cl.o strong{color:var(--g2);}
+.cl.g strong{color:var(--g3);}
+.cl.gold strong{color:var(--gold);}
+.cl.r strong{color:var(--red);}
+
+ul.sl{list-style:none;}
+ul.sl li{padding:5px 0;border-bottom:1px solid rgba(13,34,64,.5);font-size:.82rem;color:var(--txt);padding-left:14px;position:relative;}
+ul.sl li::before{content:'▸';position:absolute;left:0;color:var(--glow);font-size:.65rem;}
+ul.sl li:last-child{border-bottom:none;}
+
+.badge{display:inline-block;font-family:'Orbitron',monospace;font-size:.5rem;font-weight:700;letter-spacing:1px;padding:2px 6px;border-radius:2px;margin-right:3px;vertical-align:middle;white-space:nowrap;}
+.bq{background:rgba(0,212,255,.12);color:var(--glow);border:1px solid rgba(0,212,255,.3);}
+.br{background:rgba(0,255,136,.1);color:var(--g3);border:1px solid rgba(0,255,136,.3);}
+.be{background:rgba(255,107,0,.1);color:var(--g2);border:1px solid rgba(255,107,0,.3);}
+.bg{background:rgba(255,215,0,.08);color:var(--gold);border:1px solid rgba(255,215,0,.3);}
+.bm{background:rgba(255,34,68,.1);color:var(--red);border:1px solid rgba(255,34,68,.3);}
+
+/* WEEK CARDS */
+.wcard{background:var(--panel);border:1px solid var(--b);border-radius:6px;margin-bottom:16px;overflow:hidden;}
+.whdr{background:rgba(0,212,255,.06);border-bottom:1px solid var(--b);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;transition:background .2s;user-select:none;}
+.whdr:hover{background:rgba(0,212,255,.1);}
+.whdr.m2{background:rgba(255,107,0,.06);}
+.whdr.m2:hover{background:rgba(255,107,0,.1);}
+.whdr.m3{background:rgba(0,255,136,.05);}
+.whdr.m3:hover{background:rgba(0,255,136,.08);}
+.wlbl{font-family:'Orbitron',sans-serif;font-size:.72rem;font-weight:700;color:var(--glow);letter-spacing:2px;}
+.whdr.m2 .wlbl{color:var(--g2);}
+.whdr.m3 .wlbl{color:var(--g3);}
+.wtag{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);background:rgba(0,0,0,.3);padding:2px 8px;border-radius:2px;}
+.wbody{padding:16px;display:none;}
+.wbody.open{display:block;}
+
+/* DAY ROWS */
+.drow{display:grid;grid-template-columns:80px 1fr;gap:10px;align-items:start;padding:8px 0;border-bottom:1px solid rgba(13,34,64,.4);}
+.drow:last-child{border-bottom:none;}
+.dlbl{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--glow);padding-top:2px;line-height:1.3;}
+.ti{display:flex;align-items:flex-start;gap:7px;margin:3px 0;}
+.tc2{width:15px;height:15px;cursor:pointer;accent-color:var(--glow);flex-shrink:0;margin-top:2px;}
+.tt{font-size:.8rem;color:var(--txt);}
+.tt.done{text-decoration:line-through;color:var(--dim);}
+
+/* TABLES */
+.t{width:100%;border-collapse:collapse;font-size:.8rem;}
+.t th{background:rgba(0,212,255,.08);font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:1.5px;color:var(--glow);padding:8px 12px;text-align:left;border-bottom:1px solid var(--b);}
+.t td{padding:8px 12px;border-bottom:1px solid rgba(13,34,64,.4);vertical-align:middle;color:var(--txt);}
+.t tr:last-child td{border-bottom:none;}
+.t tr:hover td{background:rgba(0,212,255,.025);}
+.tcl{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--glow);white-space:nowrap;}
+.dp{background:rgba(0,0,0,.35);border:1px solid var(--b);border-radius:2px;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);padding:2px 7px;white-space:nowrap;}
+
+/* STAT BOXES */
+.sbox{background:var(--panel);border:1px solid var(--b);border-radius:6px;padding:16px;text-align:center;}
+.sv{font-family:'Orbitron',sans-serif;font-size:1.8rem;font-weight:900;color:var(--glow);text-shadow:0 0 14px var(--glow);line-height:1;}
+.sl2{font-family:'Share Tech Mono',monospace;font-size:.62rem;color:var(--dim2);letter-spacing:2px;margin-top:5px;}
+.sbox.o .sv{color:var(--g2);text-shadow:0 0 14px var(--g2);}
+.sbox.g .sv{color:var(--g3);text-shadow:0 0 14px var(--g3);}
+.sbox.gold .sv{color:var(--gold);text-shadow:0 0 14px var(--gold);}
+
+/* PROGRESS */
+.pb{background:rgba(0,0,0,.4);border:1px solid var(--b);border-radius:2px;height:7px;overflow:hidden;margin:5px 0;}
+.pf{height:100%;border-radius:2px;background:linear-gradient(90deg,#002a44,var(--glow));transition:width .4s;}
+.prow{display:flex;align-items:center;gap:10px;margin:6px 0;}
+.pn{font-family:'Share Tech Mono',monospace;font-size:.68rem;width:95px;color:var(--txt);flex-shrink:0;}
+.ppct{font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--glow);width:34px;text-align:right;flex-shrink:0;}
+
+/* RINGS */
+.rwrap{display:flex;align-items:center;gap:14px;margin-bottom:14px;}
+.rsvg{width:65px;height:65px;flex-shrink:0;}
+circle{fill:none;stroke-width:6;}
+.rbg{stroke:rgba(13,34,64,.9);}
+.rp{stroke:var(--glow);stroke-linecap:round;transform:rotate(-90deg);transform-origin:50% 50%;transition:stroke-dashoffset .5s;}
+.rtxt{font-family:'Orbitron',sans-serif;font-size:.65rem;fill:var(--glow);font-weight:bold;}
+
+/* CHAPTER ITEMS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:7px;margin-top:10px;}
+.chi{display:flex;align-items:center;gap:7px;padding:7px 9px;background:rgba(0,0,0,.2);border:1px solid rgba(13,34,64,.7);border-radius:3px;cursor:pointer;transition:all .2s;}
+.chi:hover{border-color:rgba(0,212,255,.3);}
+.chi.dn{border-color:rgba(0,255,136,.3);background:rgba(0,255,136,.03);}
+.chi.dn .chn{color:var(--dim2);text-decoration:line-through;}
+.chcb{width:13px;height:13px;accent-color:var(--g3);flex-shrink:0;}
+.chn{font-size:.78rem;color:var(--txt);}
+.cht{font-family:'Share Tech Mono',monospace;font-size:.58rem;color:var(--dim2);margin-left:auto;white-space:nowrap;}
+
+/* WEIGHT BAR */
+.wbar-wrap{margin:6px 0;}
+.wbar-row{display:flex;align-items:center;gap:8px;margin:4px 0;}
+.wbar-label{font-size:.73rem;color:var(--txt);width:130px;flex-shrink:0;}
+.wbar-outer{flex:1;height:10px;background:rgba(0,0,0,.4);border:1px solid var(--b);border-radius:2px;overflow:hidden;}
+.wbar-inner{height:100%;border-radius:2px;transition:width .4s;}
+.wbar-q{background:linear-gradient(90deg,#002a44,var(--glow));}
+.wbar-r{background:linear-gradient(90deg,#003d22,var(--g3));}
+.wbar-e{background:linear-gradient(90deg,#3d1a00,var(--g2));}
+.wbar-g{background:linear-gradient(90deg,#2a1d00,var(--gold));}
+.wbar-pct{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);width:36px;text-align:right;}
+
+/* REWARDS */
+.rp-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:14px;}
+.rcard{border-radius:6px;padding:16px;border:1px solid;}
+.rc-rw{background:rgba(0,255,136,.04);border-color:rgba(0,255,136,.25);}
+.rc-pn{background:rgba(255,34,68,.04);border-color:rgba(255,34,68,.25);}
+.rcit{display:flex;gap:9px;padding:6px 0;border-bottom:1px solid rgba(255,255,255,.03);font-size:.8rem;}
+.rcit:last-child{border-bottom:none;}
+.rci{font-size:.95rem;flex-shrink:0;}
+
+/* MAINS SPECIFIC */
+.mains-band{background:linear-gradient(135deg,rgba(255,215,0,.05) 0%,rgba(255,107,0,.05) 100%);border:1px solid rgba(255,215,0,.2);border-radius:8px;padding:20px;margin-bottom:20px;}
+.mains-band .st{color:var(--gold);}
+.mains-band .st::after{background:linear-gradient(90deg,var(--gold),transparent);}
+
+.sch-block{background:var(--panel);border:1px solid var(--b);border-radius:4px;padding:8px 12px;margin:4px 0;display:flex;align-items:center;gap:10px;}
+.sch-time{font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--glow);width:90px;flex-shrink:0;}
+.sch-activity{font-size:.8rem;color:var(--txt);flex:1;}
+.sch-dur{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);background:rgba(0,0,0,.3);border:1px solid var(--b);border-radius:2px;padding:1px 7px;white-space:nowrap;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:24px;}
+.timeline::before{content:'';position:absolute;left:7px;top:8px;bottom:8px;width:1px;background:linear-gradient(180deg,var(--glow),var(--g2),var(--g3));}
+.tl-item{position:relative;margin-bottom:16px;}
+.tl-dot{position:absolute;left:-21px;top:4px;width:10px;height:10px;border-radius:50%;border:2px solid var(--glow);background:var(--bg);}
+.tl-item:nth-child(2) .tl-dot{border-color:var(--g2);}
+.tl-item:nth-child(3) .tl-dot{border-color:var(--g3);}
+.tl-item:nth-child(4) .tl-dot{border-color:var(--gold);}
+.tl-date{font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--glow);letter-spacing:2px;margin-bottom:4px;}
+.tl-item:nth-child(2) .tl-date{color:var(--g2);}
+.tl-item:nth-child(3) .tl-date{color:var(--g3);}
+.tl-item:nth-child(4) .tl-date{color:var(--gold);}
+.tl-body{font-size:.82rem;color:var(--txt);}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--b),transparent);margin:18px 0;}
+.mb16{margin-bottom:16px;}
+.mb20{margin-bottom:20px;}
+.mt16{margin-top:16px;}
+.mt20{margin-top:20px;}
+a{color:var(--glow);text-decoration:none;}
+
+/* GLITCH */
+@keyframes glitch{0%,100%{text-shadow:0 0 20px var(--glow);}33%{text-shadow:-2px 0 #ff2244,2px 0 var(--glow);}66%{text-shadow:2px 0 #ff2244,-2px 0 var(--glow);}}
+.glitch{animation:glitch 5s infinite;}
+@keyframes pulse{0%,100%{opacity:1;}50%{opacity:.5;}}
+.pulse{animation:pulse 2s infinite;}
+
+/* STORAGE BANNER */
+.storage-note{background:rgba(0,255,136,.05);border:1px solid rgba(0,255,136,.2);border-radius:4px;padding:8px 14px;font-family:'Share Tech Mono',monospace;font-size:.68rem;color:var(--g3);display:flex;gap:8px;align-items:center;margin-bottom:16px;}
+
+@media(max-width:768px){.g2,.g3,.g4,.g5{grid-template-columns:1fr;}.rp-grid{grid-template-columns:1fr;}.hdr{flex-direction:column;gap:10px;}.hstats{justify-content:center;}.tc{padding:14px;}}
+.footer{text-align:center;padding:18px;font-family:'Share Tech Mono',monospace;font-size:.6rem;color:var(--dim);border-top:1px solid var(--b);margin-top:28px;letter-spacing:1px;}
+
+/* ── GITHUB SYNC ── */
+.sync-pill{display:flex;align-items:center;gap:6px;background:rgba(0,0,0,.4);border:1px solid var(--b);border-radius:4px;padding:5px 12px;font-family:'Share Tech Mono',monospace;font-size:.65rem;cursor:pointer;transition:border-color .2s;white-space:nowrap;}
+.sync-pill:hover{border-color:rgba(0,212,255,.4);}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--dim);flex-shrink:0;transition:background .3s;}
+.sync-dot.ok{background:var(--g3);box-shadow:0 0 6px var(--g3);}
+.sync-dot.err{background:var(--red);box-shadow:0 0 6px var(--red);}
+.sync-dot.busy{background:var(--gold);box-shadow:0 0 6px var(--gold);animation:pulse 1s infinite;}
+
+/* MODAL OVERLAY */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:10000;display:flex;align-items:center;justify-content:center;padding:20px;}
+.modal-overlay.hidden{display:none;}
+.modal-box{background:#060c18;border:1px solid var(--b);border-radius:8px;padding:32px;max-width:560px;width:100%;position:relative;box-shadow:0 0 60px rgba(0,212,255,.1);}
+.modal-box::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--glow),transparent);opacity:.5;}
+.modal-title{font-family:'Orbitron',sans-serif;font-size:.9rem;font-weight:900;color:var(--glow);letter-spacing:3px;margin-bottom:6px;}
+.modal-sub{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);margin-bottom:22px;letter-spacing:1px;}
+.field-label{font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2);letter-spacing:1px;margin-bottom:5px;display:block;}
+.field-input{width:100%;background:rgba(0,0,0,.5);border:1px solid var(--b);border-radius:4px;color:var(--txt);padding:9px 12px;font-family:'Share Tech Mono',monospace;font-size:.78rem;margin-bottom:14px;outline:none;transition:border-color .2s;}
+.field-input:focus{border-color:rgba(0,212,255,.5);}
+.field-hint{font-size:.72rem;color:var(--dim2);margin-top:-10px;margin-bottom:14px;line-height:1.5;}
+.field-hint a{color:var(--glow);}
+.modal-btn{font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;letter-spacing:1.5px;padding:10px 24px;border-radius:4px;cursor:pointer;border:none;transition:all .2s;}
+.modal-btn.primary{background:rgba(0,212,255,.15);border:1px solid rgba(0,212,255,.5);color:var(--glow);}
+.modal-btn.primary:hover{background:rgba(0,212,255,.25);}
+.modal-btn.secondary{background:transparent;border:1px solid var(--b);color:var(--dim2);}
+.modal-btn.secondary:hover{border-color:var(--dim);color:var(--txt);}
+.modal-err{background:rgba(255,34,68,.08);border:1px solid rgba(255,34,68,.3);border-radius:4px;padding:8px 12px;font-family:'Share Tech Mono',monospace;font-size:.7rem;color:var(--red);margin-top:12px;display:none;}
+.steps-list{counter-reset:steps;list-style:none;margin-bottom:20px;}
+.steps-list li{counter-increment:steps;display:flex;gap:10px;margin-bottom:10px;font-size:.8rem;color:var(--txt);}
+.steps-list li::before{content:counter(steps);font-family:'Orbitron',sans-serif;font-size:.6rem;font-weight:700;color:var(--glow);background:rgba(0,212,255,.12);border:1px solid rgba(0,212,255,.3);border-radius:3px;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.divider-line{height:1px;background:linear-gradient(90deg,transparent,var(--b),transparent);margin:18px 0;}
+/* SETUP BANNER (when no config) */
+.setup-banner{background:rgba(255,215,0,.05);border:1px solid rgba(255,215,0,.25);border-radius:6px;padding:12px 16px;display:flex;align-items:center;gap:12px;margin-bottom:16px;font-size:.8rem;cursor:pointer;transition:background .2s;}
+.setup-banner:hover{background:rgba(255,215,0,.08);}
+.setup-banner.hidden{display:none;}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hdr">
+  <div>
+    <div class="htitle glitch">⚡ OPERATION TOP 5% — SSC CGL PRE + MAINS</div>
+    <div class="hsub">MARCH END 2025 → EXAM · T-MINUS <span id="cnt" style="color:var(--g2)">---</span> DAYS · ALL PROGRESS AUTO-SAVED IN BROWSER</div>
+  </div>
+  <div class="hstats">
+    <div class="hpill"><span class="v" id="opct">0%</span><span class="l">OVERALL</span></div>
+    <div class="hpill"><span class="v" id="odone">0</span><span class="l">TASKS DONE</span></div>
+    <div class="hpill"><span class="v" style="color:var(--g2)">170+</span><span class="l">PRE TARGET</span></div>
+    <div class="hpill"><span class="v" style="color:var(--gold)">MAINS</span><span class="l">FULL PLAN</span></div>
+    <div class="sync-pill" onclick="openSetup()" title="GitHub Sync — click to configure">
+      <div class="sync-dot" id="syncDot"></div>
+      <span id="syncLabel" style="color:var(--dim2)">NO SYNC</span>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<div class="nav">
+  <button class="tbtn act" onclick="showTab('intel')">⬡ INTEL</button>
+  <button class="tbtn" onclick="showTab('strategy')">◈ STRATEGY</button>
+  <button class="tbtn" onclick="showTab('m1')">▶ MONTH 1</button>
+  <button class="tbtn" onclick="showTab('m2')">▶ MONTH 2</button>
+  <button class="tbtn" onclick="showTab('m3')">▶ MONTH 3</button>
+  <button class="tbtn" onclick="showTab('mains')">★ MAINS PLAN</button>
+  <button class="tbtn" onclick="showTab('ops')">⊞ DAILY OPS</button>
+  <button class="tbtn" onclick="showTab('chapters')">≡ TRACKER</button>
+  <button class="tbtn" onclick="showTab('arsenal')">◉ ARSENAL</button>
+  <button class="tbtn" onclick="showTab('protocol')">🏆 PROTOCOL</button>
+</div>
+
+<!-- ═══ INTEL ═══ -->
+<div class="tc act" id="tab-intel">
+  <div class="setup-banner" id="setupBanner" onclick="openSetup()">
+    <span style="font-size:1.2rem">☁️</span>
+    <div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.65rem;font-weight:700;color:var(--gold);letter-spacing:2px;">GITHUB SYNC NOT CONFIGURED</div>
+      <div style="font-size:.75rem;color:var(--dim2);margin-top:2px;">Your progress is saved only on this device. Click here to set up GitHub sync — works across devices, never lost.</div>
+    </div>
+    <span style="margin-left:auto;font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--gold);white-space:nowrap;">SETUP →</span>
+  </div>
+  <div class="storage-note" id="syncOkBanner" style="display:none;">✅ GITHUB SYNC ACTIVE — progress saves to your repository automatically on every change. Accessible from any device.</div>
+
+  <div class="st">MISSION BRIEFING — THE REAL PICTURE</div>
+  <div class="sd">// Based on PYQ analysis 2019–2024 · All shifts · Verified data</div>
+
+  <div class="g5 mb20">
+    <div class="sbox"><div class="sv">200</div><div class="sl2">PRE MARKS</div></div>
+    <div class="sbox o"><div class="sv">170+</div><div class="sl2">PRE TARGET</div></div>
+    <div class="sbox g"><div class="sv">~115</div><div class="sl2">YOUR BASE</div></div>
+    <div class="sbox gold"><div class="sv">450</div><div class="sl2">MAINS MARKS</div></div>
+    <div class="sbox" style="border-color:rgba(255,34,68,.3)"><div class="sv" style="color:var(--red);text-shadow:0 0 14px var(--red)">TOP 5%</div><div class="sl2">MISSION</div></div>
+  </div>
+
+  <div class="cl gold mb20">
+    <strong>⚡ CRITICAL FACT MOST PEOPLE MISS:</strong> Tier 1 is QUALIFYING ONLY. Your Tier 1 score does NOT count in the final merit list. Only Tier 2 (Mains) marks determine your posting and rank. This means: don't just clear Tier 1 — use every day before Tier 1 to also build the foundation for Mains. The syllabi overlap ~80%. You're preparing for both simultaneously.
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel">
+      <div class="ptit">📊 TIER 1 — SECTION ANALYSIS</div>
+      <table class="t">
+        <tr><th>SECTION</th><th>QS</th><th>MKS</th><th>YOUR BASE</th><th>TARGET</th><th>GAP</th></tr>
+        <tr><td>REASONING</td><td>25</td><td>50</td><td style="color:var(--g3)">38–42</td><td style="color:var(--glow)">46+</td><td style="color:var(--g2)">+6</td></tr>
+        <tr><td>QUANT</td><td>25</td><td>50</td><td style="color:var(--g3)">36–40</td><td style="color:var(--glow)">44+</td><td style="color:var(--g2)">+6</td></tr>
+        <tr><td>ENGLISH</td><td>25</td><td>50</td><td style="color:var(--red)">22–26</td><td style="color:var(--glow)">40+</td><td style="color:var(--red)">+16</td></tr>
+        <tr><td>GK / GS</td><td>25</td><td>50</td><td style="color:var(--red)">14–18</td><td style="color:var(--glow)">40+</td><td style="color:var(--red)">+22</td></tr>
+        <tr><td style="color:var(--gold);font-weight:bold">TOTAL</td><td>100</td><td>200</td><td style="color:var(--g3)">~115</td><td style="color:var(--gold)">170+</td><td style="color:var(--gold)">+55</td></tr>
+      </table>
+    </div>
+    <div class="panel o">
+      <div class="ptit">📊 TIER 2 (MAINS) — NEW 2023 PATTERN</div>
+      <table class="t">
+        <tr><th>SECTION</th><th>QS</th><th>MKS</th><th>NEG</th></tr>
+        <tr><td>Math Abilities (S-I)</td><td>30</td><td>90</td><td style="color:var(--red)">−1</td></tr>
+        <tr><td>Reasoning (S-II)</td><td>30</td><td>90</td><td style="color:var(--red)">−1</td></tr>
+        <tr><td>English L&C (S-III M1)</td><td>45</td><td>135</td><td style="color:var(--red)">−1</td></tr>
+        <tr><td>Gen/Fin Awareness (S-III M2)</td><td>25</td><td>75</td><td style="color:var(--red)">−1</td></tr>
+        <tr><td>Computer Knowledge (qualifying)</td><td>20</td><td>60</td><td>—</td></tr>
+        <tr><td style="color:var(--gold);font-weight:bold">TOTAL (merit)</td><td>130</td><td>390+</td><td>—</td></tr>
+      </table>
+      <div class="cl r mt16" style="font-size:.75rem;"><strong>⚠️ MAINS −1 per wrong.</strong> This is double the Tier 1 penalty. Accuracy over speed in Mains.</div>
+    </div>
+  </div>
+
+  <!-- REAL PYQ WEIGHTAGE -->
+  <div class="st mt20">ACTUAL PYQ WEIGHTAGE — 2019–2024 ANALYSIS</div>
+  <div class="sd">// This is what SSC actually asks. Plan around this data, not generic syllabi.</div>
+
+  <div class="g2 mb20">
+    <div class="panel">
+      <div class="ptit">📐 QUANT — QUESTION FREQUENCY</div>
+      <div class="wbar-wrap">
+        <div class="wbar-row"><span class="wbar-label">Data Interpretation</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:90%"></div></div><span class="wbar-pct">3–6 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Geometry</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:80%"></div></div><span class="wbar-pct">2–4 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Trigonometry</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:75%"></div></div><span class="wbar-pct">1–4 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Mensuration</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:72%"></div></div><span class="wbar-pct">2–4 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Profit/Loss</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:65%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Time & Work</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:60%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Algebra</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:58%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Number System</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:50%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">CI & SI</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:45%"></div></div><span class="wbar-pct">0–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Speed/Distance</span><div class="wbar-outer"><div class="wbar-inner wbar-q" style="width:40%"></div></div><span class="wbar-pct">0–2 Qs</span></div>
+      </div>
+      <div class="cl mt16" style="font-size:.75rem;"><strong>INSIGHT:</strong> DI alone = 3–6 marks every single paper. People treat it as secondary — it's actually the #1 single topic by frequency. Geometry + Trig + Mensuration together = 6–12 marks. That's half your Quant section.</div>
+    </div>
+    <div class="panel g">
+      <div class="ptit" style="color:var(--g3)">🧠 REASONING — QUESTION FREQUENCY</div>
+      <div class="wbar-wrap">
+        <div class="wbar-row"><span class="wbar-label">Analogy</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:85%"></div></div><span class="wbar-pct">0–4 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Coding-Decoding</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:80%"></div></div><span class="wbar-pct">2–4 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Alphanumeric Series</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:72%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Missing Number Series</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:70%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Syllogism</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:60%"></div></div><span class="wbar-pct">0–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Mathematical Operator</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:55%"></div></div><span class="wbar-pct">0–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Blood Relations</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:50%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Non-verbal (all types)</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:65%"></div></div><span class="wbar-pct">3–5 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Classification/Odd one</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:45%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Direction Sense</span><div class="wbar-outer"><div class="wbar-inner wbar-r" style="width:30%"></div></div><span class="wbar-pct">0–1 Qs</span></div>
+      </div>
+      <div class="cl g mt16" style="font-size:.75rem;"><strong>INSIGHT:</strong> Direction Sense gets 0–1 question. Tons of prep time wasted here. Analogy + Coding + Series = guaranteed 5–10 marks every paper. These three deserve 60% of your Reasoning time.</div>
+    </div>
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel o">
+      <div class="ptit">📖 ENGLISH — QUESTION FREQUENCY</div>
+      <div class="wbar-wrap">
+        <div class="wbar-row"><span class="wbar-label">Cloze Test</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:95%"></div></div><span class="wbar-pct">5 Qs fixed</span></div>
+        <div class="wbar-row"><span class="wbar-label">RC Comprehension</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:88%"></div></div><span class="wbar-pct">5–8 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Error Detection</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:75%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Fill in the Blanks</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:72%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Sentence Improvement</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:68%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Para Jumbles</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:60%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Synonyms/Antonyms</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:58%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">One-word Sub/Idioms</span><div class="wbar-outer"><div class="wbar-inner wbar-e" style="width:45%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+      </div>
+      <div class="cl o mt16" style="font-size:.75rem;"><strong>INSIGHT:</strong> Cloze Test = guaranteed 5 questions, every paper. It tests both grammar AND vocab simultaneously. If your Cloze game is strong, you get 5 marks with near certainty. Cloze + RC = 10–13 marks. That's 50%+ of English. Master these two first.</div>
+    </div>
+    <div class="panel gold">
+      <div class="ptit">🌍 GK — SUBJECT-WISE FREQUENCY</div>
+      <div class="wbar-wrap">
+        <div class="wbar-row"><span class="wbar-label">Science (total)</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:95%"></div></div><span class="wbar-pct">6–9 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">→ Chemistry</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:75%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">→ Biology</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:68%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">→ Physics</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:62%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">History</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:72%"></div></div><span class="wbar-pct">1–5 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Economy</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:68%"></div></div><span class="wbar-pct">1–5 Qs↑</span></div>
+        <div class="wbar-row"><span class="wbar-label">Current Affairs</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:65%"></div></div><span class="wbar-pct">2–5 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Polity</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:58%"></div></div><span class="wbar-pct">1–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Static GK</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:50%"></div></div><span class="wbar-pct">2–3 Qs</span></div>
+        <div class="wbar-row"><span class="wbar-label">Geography</span><div class="wbar-outer"><div class="wbar-inner wbar-g" style="width:42%"></div></div><span class="wbar-pct">1–2 Qs</span></div>
+      </div>
+      <div class="cl gold mt16" style="font-size:.75rem;"><strong>CRITICAL INSIGHT EVERYONE IGNORES:</strong> Science alone = 6–9 questions. History gets all the attention but only 1–5 questions. Economy questions are increasing year-on-year (2022: 1–2Q → 2024: 3–5Q). Allocate prep time matching these frequencies, not popular myths.</div>
+    </div>
+  </div>
+
+  <!-- MOCK LOG -->
+  <div class="g2">
+    <div class="panel g">
+      <div class="ptit">📈 SUBJECT PROGRESS</div>
+      <div class="prow"><div class="pn">QUANT</div><div class="pb" style="flex:1"><div class="pf" id="pq" style="width:0%"></div></div><div class="ppct" id="pqp">0%</div></div>
+      <div class="prow"><div class="pn">REASONING</div><div class="pb" style="flex:1"><div class="pf" id="pr" style="width:0%;background:linear-gradient(90deg,#003322,var(--g3))"></div></div><div class="ppct" id="prp" style="color:var(--g3)">0%</div></div>
+      <div class="prow"><div class="pn">ENGLISH</div><div class="pb" style="flex:1"><div class="pf" id="pe" style="width:0%;background:linear-gradient(90deg,#3a1500,var(--g2))"></div></div><div class="ppct" id="pep" style="color:var(--g2)">0%</div></div>
+      <div class="prow"><div class="pn">GK / GS</div><div class="pb" style="flex:1"><div class="pf" id="pg" style="width:0%;background:linear-gradient(90deg,#2a2000,var(--gold))"></div></div><div class="ppct" id="pgp" style="color:var(--gold)">0%</div></div>
+      <div style="margin-top:10px;font-family:'Share Tech Mono',monospace;font-size:.65rem;color:var(--dim2)">Check off chapters in the TRACKER tab to update progress.</div>
+    </div>
+    <div class="panel">
+      <div class="ptit">📊 MOCK SCORE LOG</div>
+      <div id="mklist" style="font-size:.8rem;min-height:60px;"></div>
+      <div style="display:flex;gap:7px;margin-top:10px;flex-wrap:wrap;">
+        <input id="mkinput" type="number" min="0" max="200" placeholder="Score (0-200)" style="background:rgba(0,0,0,.4);border:1px solid var(--b);border-radius:3px;color:var(--txt);padding:5px 9px;font-family:'Share Tech Mono',monospace;font-size:.75rem;width:130px;">
+        <button onclick="addMock()" style="background:rgba(0,212,255,.1);border:1px solid rgba(0,212,255,.35);border-radius:3px;color:var(--glow);font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:1px;padding:5px 12px;cursor:pointer;">LOG</button>
+        <button onclick="clearMocks()" style="background:rgba(255,34,68,.08);border:1px solid rgba(255,34,68,.3);border-radius:3px;color:var(--red);font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;padding:5px 10px;cursor:pointer;">CLR</button>
+      </div>
+      <div id="mktrend" style="margin-top:8px;font-family:'Share Tech Mono';font-size:.68rem;color:var(--dim2);"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ STRATEGY ═══ -->
+<div class="tc" id="tab-strategy">
+  <div class="st">SUBJECT-WISE BATTLE DOCTRINE</div>
+  <div class="sd">// Based on real PYQ data + your specific resource set + your memory profile</div>
+
+  <!-- QUANT -->
+  <div class="panel mb16">
+    <div class="ptit">📐 QUANT STRATEGY — ADITYA RANJAN SIR + PINNACLE PYQs</div>
+    <div class="cl gold mb16">
+      <strong>YOUR RESOURCE STACK:</strong> Pinnacle PYQs (Primary) → Aditya Ranjan Sir batch (Rankers Gurukul) → Gagan Pratap Sir (YouTube, free, concepts) → Testbook mocks.<br>
+      <strong>WHO IS ADITYA RANJAN SIR:</strong> Currently Excise Inspector. Scored 50/50 in Maths in SSC CGL. Teaches on Rankers Gurukul (YouTube/app). His "5000+ TCS MCQ" approach is exactly what Pinnacle PYQs does — pattern-based practice. His lectures are fast, shortcut-heavy, and SSC-specific. Use his batch for chapters where you want speed shortcuts AFTER you understand the concept.
+    </div>
+    <div class="g2">
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--glow);letter-spacing:1px;margin-bottom:8px;">PRIORITY MAP (BASED ON REAL FREQUENCY)</div>
+        <ul class="sl">
+          <li><strong>🔴 TIER 1 [DI + Geometry + Trig + Mensuration]</strong> — Together 9–15 Qs per paper. DI alone 3–6. These four chapters deserve 50% of your Quant prep time. Not Percentage — DI. This is what most students get wrong.</li>
+          <li><strong>🟠 TIER 2 [Profit/Loss + T&W + Algebra + Number Sys]</strong> — 6–8 Qs. These are faster to crack. Concept once, many PYQs, done. Aditya Sir's shortcuts shine here.</li>
+          <li><strong>🟡 TIER 3 [SI/CI + Speed/Distance + Ratio + Avg]</strong> — 3–5 Qs. Already part of your base score of 115. Just maintain.</li>
+          <li><strong>FORMULA HACK FOR YOUR MEMORY:</strong> Don't memorize SI = PRT/100. Instead, understand: "Simple interest is just rent you pay on money, charged linearly." The formula follows. Same for all arithmetic — understand the physical/financial meaning first.</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--glow);letter-spacing:1px;margin-bottom:8px;">HOW TO USE PINNACLE QS (QUANT)</div>
+        <ul class="sl">
+          <li><strong>Step 1:</strong> Pick chapter from Pinnacle. Attempt first 15 questions cold (no theory). This forces your brain to pattern-seek — your natural strength.</li>
+          <li><strong>Step 2:</strong> Check answers. Group wrong Qs by type (conceptual gap / calculation error / missed trick).</li>
+          <li><strong>Step 3:</strong> For conceptual gaps → Aditya Sir or Gagan Pratap lecture. For calculation errors → practice that specific type 20 more times.</li>
+          <li><strong>Step 4:</strong> Complete all Pinnacle Qs for that chapter. Target 85% accuracy before moving on.</li>
+          <li><strong>Step 5:</strong> Index card: 1–2 key formulas/shortcuts from this chapter. That's your revision tool, not the textbook.</li>
+          <li><strong>DI specific:</strong> Every DI set in Pinnacle — do it in under 4 minutes (5 questions). If you can't, your mental calculation speed needs work. Practice percentage calculations mentally daily — this is the real bottleneck in DI, not reading the chart.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- REASONING -->
+  <div class="panel g mb16">
+    <div class="ptit">🧠 REASONING STRATEGY — VIKRAMJEET SIR + PINNACLE PYQs</div>
+    <div class="cl g mb16">
+      <strong>YOUR RESOURCE STACK:</strong> Pinnacle PYQs (Primary — do these FIRST, always) → Vikramjeet Sir on Rankers Gurukul / YouTube (for tricks on non-verbal + matrix + newer patterns). Vikramjeet Sir and Aditya Sir are on the same platform (RG) — if you have Aditya Sir's course and it includes reasoning, use Vikramjeet Sir's videos within it.
+    </div>
+    <div class="g2">
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--g3);letter-spacing:1px;margin-bottom:8px;">PRIORITY MAP (REAL FREQUENCY)</div>
+        <ul class="sl">
+          <li><strong>🔴 [Analogy + Coding + Series] = 5–10 Qs guaranteed.</strong> These three alone. Most of your Reasoning prep time here. Within series: Alphanumeric series has been increasing — 1–3 Qs in recent papers. Don't neglect it.</li>
+          <li><strong>🟠 [Non-verbal: Mirror/Paper/Dice/Figure Series] = 3–5 Qs.</strong> Zero memory, pure visual pattern. Your cognitive strength. Only 30–40 minutes to get good. High ROI per minute.</li>
+          <li><strong>🟡 [Syllogism + Math Operator + Classification] = 3–5 Qs.</strong> Syllogism: only learn Venn diagram method, not the "All A are B" rule-memorization. Venn diagrams are visual and your brain will lock it.</li>
+          <li><strong>⚡ Direction Sense: 0–1 Qs.</strong> Don't waste more than 30 minutes on this. Ever. One session, done.</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--g3);letter-spacing:1px;margin-bottom:8px;">YOUR UNFAIR ADVANTAGE</div>
+        <ul class="sl">
+          <li>You are a quantitative researcher who builds models and finds patterns in data for a living. SSC Reasoning is literally pattern recognition — the same cognitive skill you use daily.</li>
+          <li>For coding-decoding: every SSC pattern can be categorized. In Pinnacle PYQs, after 20 questions, you will have seen all patterns — letter shift (+1, +2, alternating), word coding, symbol substitution, position-based. Categorize them as you go. You'll rarely see a genuinely "new" coding pattern.</li>
+          <li>For analogy: Most SSC analogies are semantic (category, property) or alphabetical (position, gap). After 50 PYQs, patterns are obvious. Your logical mind will automatically build a taxonomy.</li>
+          <li>TARGET: 24+/25 in Reasoning. This is achievable for you. Never drop below 22.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENGLISH -->
+  <div class="panel o mb16">
+    <div class="ptit">📖 ENGLISH STRATEGY — RANI MA'AM + PINNACLE PYQs (NO BLACK BOOK FOR ENGLISH)</div>
+    <div class="cl o mb16">
+      <strong>YOUR RESOURCE STACK:</strong> Pinnacle English PYQs (Primary) → Rani Ma'am (KD Campus YouTube, free — grammar lectures) → Aditya Ranjan Sir has a GS book with English tips too (his "Shivastra" series). For vocab: learn ONLY from Pinnacle PYQs synonyms/antonyms — SSC repeats from a pool of ~1500 words. Learning outside this pool wastes your time.
+    </div>
+    <div class="g2">
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--g2);letter-spacing:1px;margin-bottom:8px;">CHAPTER PRIORITY (BASED ON FREQUENCY)</div>
+        <ul class="sl">
+          <li><strong>🔴 Cloze Test (5 Qs fixed every paper).</strong> Strategy: read full passage first (30 sec), identify tone (formal/informal, positive/negative). Each blank requires either grammar rule OR vocabulary. For grammar blanks, eliminate by parts of speech. For vocab blanks, context clues from sentence. Pinnacle has 100+ cloze test PYQs — do all of them.</li>
+          <li><strong>🔴 RC Comprehension (5–8 Qs).</strong> RC question types in SSC: direct fact, inference, tone/mood, vocab in context, title. Your pattern-recognition: treat RC as a data problem. Passage = dataset. Questions = queries. Don't read emotionally, extract information systematically.</li>
+          <li><strong>🟠 Error Detection (2–3 Qs).</strong> 70% of errors in PYQs come from 5 rule types: Subject-Verb Agreement, Wrong Tense, Preposition errors, Article misuse, Pronoun-antecedent mismatch. Master these 5, cover 70% of Error Detection questions.</li>
+          <li><strong>🟡 Para Jumbles + Fill in Blanks + Sentence Improvement:</strong> These follow once grammar foundation is solid.</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--g2);letter-spacing:1px;margin-bottom:8px;">MEMORY HACKS FOR YOUR PROFILE</div>
+        <ul class="sl">
+          <li><strong>Vocab — NO wordlists.</strong> Pinnacle English PYQs have synonyms/antonyms from all years. Create 10-word themed groups: "aggressive behavior words" — Bellicose, Belligerent, Pugnacious, Truculent. One theme = one story. Your logical brain remembers categories, not isolated words.</li>
+          <li><strong>Grammar rules → treat as algorithms.</strong> "When two subjects joined by 'as well as', the verb agrees with the FIRST subject" — this is an if-else condition. Write every grammar rule as a conditional statement. You will not forget them.</li>
+          <li><strong>Rani Ma'am's sequence:</strong> Watch lecture → immediately do corresponding Pinnacle PYQs → build rule card. Don't binge videos without practice. 1 video = 20 PYQs that same day.</li>
+          <li><strong>Idioms:</strong> SSC repeats ~200 idioms across years. All 200 are in Pinnacle PYQs. Group them: animal idioms (bite the bullet, spill the beans), money idioms, body idioms. Thematic grouping makes retrieval much easier than random lists.</li>
+          <li><strong>Daily reading:</strong> 10 minutes of The Hindu editorials — this trains you for RC tone and vocab in context simultaneously. More effective than any vocab app.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- GK -->
+  <div class="panel gold mb16">
+    <div class="ptit">🌍 GK STRATEGY — PARMAR BATCH + FAT MAN + INDOLOGOUS + PINNACLE PYQs</div>
+    <div class="cl gold mb16">
+      <strong>YOUR RESOURCE STACK:</strong> Parmar Batch (lecture sequence, don't change this) → Fat Man Book (cross-reference after each lecture, NOT standalone reading) → Pinnacle GK PYQs (immediately after each topic) → Indologous (Current Affairs — daily 15 min + monthly compilation). Indologous is run by Anirudh Acharya — considered the most reliable CA resource for SSC by the community. Their monthly CA PDFs and capsules are specifically exam-mapped for SSC.
+    </div>
+    <div class="g2">
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">PRIORITY REORDER (ACTUAL EXAM REALITY)</div>
+        <ul class="sl">
+          <li><strong>🔴 Science (6–9 Qs) — YOUR BIGGEST OPPORTUNITY.</strong> Most people spend 80% of GK time on History because it "feels" important. But Science gives 6–9 Qs every paper, compared to History's 1–5. Rebalance your time accordingly: Science ≥ History in time allocation.</li>
+          <li><strong>Chemistry (1–3 Qs):</strong> Acids/Bases, Chemical bonding basics, Common compounds (NaOH, HCl, H2SO4 etc.), pH scale, Metals/Non-metals. Understand the WHY — you're a scientist. Connecting oxidation/reduction to your quant background makes it stick.</li>
+          <li><strong>Biology (1–3 Qs):</strong> Cell organelles + function (not just names), Human body systems (digestive, circulatory, respiratory), Diseases and their causative agents, Vitamins and deficiency diseases. Parmar covers this well — pay close attention to his Science sections.</li>
+          <li><strong>Physics (1–2 Qs):</strong> Laws of motion, optics (reflection/refraction), Sound, Electricity. Understand the physical principle — you already think quantitatively.</li>
+          <li><strong>🔴 Economy (1–5 Qs, INCREASING trend):</strong> GDP/GNP/NNP, Inflation types, RBI functions, Budget terms, Banking (CRR/SLR/Repo/Reverse Repo), NITI Aayog, Five Year Plans context. Economy questions increased from 1–2 in 2019–20 to 3–5 in 2023–24. This trend will continue.</li>
+        </ul>
+      </div>
+      <div>
+        <div style="font-family:'Orbitron',monospace;font-size:.62rem;color:var(--gold);letter-spacing:1px;margin-bottom:8px;">MEMORY SYSTEM FOR YOUR PROFILE</div>
+        <ul class="sl">
+          <li><strong>History — THE TIMELINE APPROACH.</strong> Never memorize dates first. Build the narrative: Ancient → Medieval → Modern. Each era has a beginning, peak, and end. When you can tell the story of the Mughal decline in 90 seconds, the dates (Babur 1526, Akbar 1556–1605 etc.) slot in naturally — they become plot points, not memorized numbers.</li>
+          <li><strong>Parmar Batch 4-Step Loop:</strong> Watch lecture (full attention) → Pause, close eyes, narrate back what you just learned in your own words (Feynman — 3 min) → Open Fat Man to the same section (5 min cross-reference, note anything NEW) → Immediately do all Pinnacle PYQs for that topic. Every time. No exceptions.</li>
+          <li><strong>GK Mistake Notebook:</strong> Every wrong GK PYQ goes in here. 3 times a week, scan through all entries — 10 min, passive reading only. Your brain builds pattern recognition on repeated exposure. By Month 3, your false memory will have been overwritten.</li>
+          <li><strong>Current Affairs via Indologous:</strong> Watch their daily video (8–12 min, available YouTube) OR use their PDF. Focus: National appointments, Awards, Sports championships, Science launches, Bills passed, International summits. Skip pure political news — SSC doesn't ask that. Testbook daily capsule is a good backup.</li>
+          <li><strong>Geography = spatial memory.</strong> Keep a physical/printed India map on your desk. While studying any state, river, mountain — physically point to it. This uses spatial memory pathways which are SEPARATE from verbal memory. Much more effective for you.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MONTH 1 ═══ -->
+<div class="tc" id="tab-m1">
+  <div class="st">MONTH 1 — APRIL 2025: FOUNDATION BUILD</div>
+  <div class="sd">// Complete all concepts + all Pinnacle PYQs chapter-wise · Target by April 30: 145+ in mocks</div>
+  <div class="cl mb16"><strong>MONTH 1 NORTH STAR:</strong> Every single chapter in Quant and Reasoning gets concept-first-then-PYQs treatment. English: grammar foundation via Rani Ma'am + Pinnacle PYQs. GK: Parmar lectures 1–60 approx + Pinnacle PYQs per topic. Mock frequency: 1 per week escalating to 2. <strong>Key milestone: Mock #3 (Week 3 Sunday) must hit 145+.</strong></div>
+
+  <!-- WEEK 1 -->
+  <div class="wcard">
+    <div class="whdr" onclick="tw(this)">
+      <span class="wlbl">WEEK 1: APR 1–7 — IGNITION</span>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="wtag">QUANT ARITHMETIC CORE · REASONING VERBAL · GK SCIENCE + HISTORY · ENGLISH GRAMMAR BASE</span><span id="chv1">▼</span></div>
+    </div>
+    <div class="wbody">
+      <div class="cl o mb16"><strong>WEEK OBJECTIVE:</strong> Quant: Finish Percentage, Ratio, P&L, SI/CI, T&W, Speed (arithmetic core — 10–12 Qs per paper territory). Reasoning: Analogy, Series (both types), Coding-Decoding (5–10 Qs guaranteed). GK: Parmar lectures on Science first (Chemistry + Biology basics) because Science = 6–9 Qs. English: Tenses, Articles, S-V Agreement via Rani Ma'am. Daily: 15 min Indologous CA.</div>
+
+      <div class="drow"><div class="dlbl">MON<br>APR 1</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Aditya Sir batch OR Pinnacle PYQs: Percentage — all question types. KEY insight: SSC Percentage is 95% about "on which base?" (CP vs SP vs population). Identify the base in every question before solving. First 15 Qs cold → then classify errors → 15 more with awareness. Target 80%.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Analogy — do ALL questions cold. Do NOT read theory first. Group patterns after: semantic (category), functional (tool-purpose), positional (letter shift). You'll identify all 4–5 SSC analogy pattern types from the PYQs alone.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar Batch: Chemistry Lecture 1–2 (Atomic structure, periodic table, Acids/Bases/Salts). After lecture → Feynman (2 min self-narration) → Fat Man Chemistry section → Pinnacle PYQs: Chemistry all questions. Write pH facts on index card.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am YouTube: Tenses — all 3 tense type videos. Take notes. Write each rule as an algorithm ("If present + ongoing action → present continuous"). Attempt 20 Pinnacle PYQs: tense-based fill in blanks.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">CA</span> Indologous: Daily CA video/PDF (15 min). Create a Notes doc/notebook: "SSC CA Log." Only note: appointments, awards, schemes, science launches.</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">TUE<br>APR 2</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Ratio & Proportion + Mixture & Alligation: Pinnacle PYQs all. KEY: Alligation diagram is a visual shortcut — it IS a graph. Your quantitative brain will love this once you see it. Draw every alligation problem as a cross-diagram. Never memorize the formula; understand the weighted average geometry.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Number Series + Alphanumeric Series. As you solve, EXPLICITLY write the pattern type for each: "+3 diff series", "prime number series", "alternating +2/×2 series" etc. Build your personal taxonomy of series types. After 50 questions, you will have seen every pattern SSC uses.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Chemistry Lecture 3–4 (Chemical reactions, Metals/Non-metals, Common chemicals). After loop: Fat Man → Pinnacle PYQs. Add to chemistry index card: NaOH (strong base, caustic soda), H2SO4 (sulphuric acid, car batteries), HCl (hydrochloric acid, stomach acid). Context = memory.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am: Subject-Verb Agreement — all rules video. Write each rule as conditional. E.g., "If subject = (A or B): verb agrees with nearest subject." Do 30 Pinnacle PYQs: Error Detection (SVA-focused). Check: what error type was each wrong answer?</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">WED<br>APR 3</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Profit/Loss + Discount: Pinnacle PYQs all. Then Aditya Sir: successive discount shortcut (1 − d1)(1 − d2) = net retention. SSC P&L questions are almost always about CP/SP relationship manipulation. Once you see this, every variant is trivial. Note: "MP × (1−d) = SP" and "SP − CP = Profit." Derive, don't memorize.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Coding-Decoding — all questions. CLASSIFY every question by coding type: (1) Letter shift, (2) Word-level coding, (3) Symbol substitution, (4) Number-letter swap, (5) Conditional coding. After 40 questions, every future coding question becomes "which type?" then apply pattern. Maximum 30 seconds.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Biology Lecture 1–2 (Cell structure, organelles). Build "Cell City" mental model: nucleus = mayor's office (DNA/control), mitochondria = power plant, ribosome = factory, cell membrane = city wall. This narrative means you will NEVER forget organelle functions.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am: Articles (A/An/The) — all rules. SSC tests: "zero article" cases, "the" before superlatives, "a/an" before consonant/vowel sounds (not letters — crucial). Do 25 Pinnacle PYQs on error detection (article-focused). Add all rules to grammar algorithm card.</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">THU<br>APR 4</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> SI + CI: Pinnacle PYQs all. KEY insight you'll love: CI formula is just geometric growth — same math as compound interest in finance (your field!). CI = P(1+r/n)^n − P. Understand it from first principles. Then shortcuts: CI−SI for 2 years = P×(r/100)². This follows from the binomial expansion. No memorization needed if you see the math.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Syllogism — all questions. METHOD: Venn diagram ONLY. Draw circles for each statement. Never use "All A are B → Some B are A" rule memorization — that's error-prone. A visual Venn diagram is unambiguous. After 10 practice questions with this method, you'll be faster and more accurate than rule-followers.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Biology Lecture 3–4 (Human digestive + circulatory systems). PIPELINE MODEL: Mouth→Esophagus→Stomach→Small intestine→Large intestine→Rectum. For each organ: what enzyme/juice does it secrete? What gets broken down? This is a process flow diagram — you understand these intuitively.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Pinnacle PYQs: Cloze Test passages — do 5 full passages. Strategy: Read full passage (30 sec) → Identify passage theme/tone → Fill blanks: grammar blanks by elimination, vocab blanks by context. Time each passage: max 4 min for 5 questions. Track: how many grammar blanks vs vocab blanks?</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">FRI<br>APR 5</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Time & Work + Pipe & Cistern: Pinnacle PYQs all. Aditya Sir's "efficiency method" shortcut: convert everything to "work done per day" → 1/days. Then operations are just fractions addition/subtraction. LCM method is fastest for multi-person problems. Do not mix methods — pick one, master it.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Mathematical Operator + Blood Relations. Math Operator: these are pure substitution puzzles — no tricks, just careful symbol replacement. Blood Relations: draw a family tree for EVERY problem until it becomes automatic. 30 questions cold.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Biology Lecture 5–6 (Diseases — bacterial, viral, parasitic). Build DISEASE TABLE: Disease → Pathogen type → Causative organism → Affected organ. SSC asks these in specific question types. Pinnacle PYQs: Biology section — diseases chapter. Note which diseases keep repeating (Malaria, TB, Dengue, AIDS — every year).</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am: Active-Passive Voice + Direct-Indirect Speech. These are TRANSFORMATION rules — very algorithmic. Map each tense transformation: present continuous → past continuous in indirect. Write as lookup table. 30 Pinnacle PYQs on voice + narration same day.</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">SAT<br>APR 6</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Speed/Distance/Time + Boats & Trains: Pinnacle PYQs all. KEY: Relative speed = the only concept here. Upstream = boat speed − current, same direction trains = speed difference, opposite = speed sum. Once you internalize relative speed physically, all variants are the same calculation.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Physics Lecture 1–2 (Laws of Motion, Gravitation). As a quant person — Newton's laws are familiar territory. Focus on: SSC specific facts like "which law explains rocket propulsion" (3rd law), "moment of inertia," SI units of all quantities. Pinnacle PYQs: Physics.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Vocab Building Session 1: From Pinnacle PYQs English, extract all synonyms/antonyms asked across years. Group into 10-word themed clusters. Today's theme: "Words describing criticism/praise" (Censure, Castigate, Rebuke vs Laud, Extol, Eulogize). Write a story connecting all 10.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">CA</span> Week 1 Indologous CA review: Can you recall 10 key CA events from this week? Write them without looking. Gaps = focus for tomorrow's revision.</span></div>
+        </div>
+      </div>
+
+      <div class="drow"><div class="dlbl">SUN<br>APR 7</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">MOCK</span> <strong>FULL MOCK #1</strong> on Testbook. Strict 60 minutes. Simulate exam hall: no phone, no second-guessing, silent room. Attempt Reasoning first (your strongest) → English → Quant → GK.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">ANALYSIS</span> 2-hour mock analysis. Build Error Register (use a notebook or Notes app). Format: Subject | Topic | Question type | Error type (Concept gap / Calculation / Careless / Negative-marked wrongly). This register is your most valuable asset in Month 2.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Weekly GK self-test: Narrate this week's Parmar topics (Science) without notes. Chemistry → Biology → Physics basics. What can't you recall? That's next week's priority.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt">📅 Week 2 plan: Identify 3 topics where mock accuracy was worst. Add extra 30 min/day to these in Week 2. Specifically note: did DI questions slow you down? Were Cloze Test passages doable?</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 2 -->
+  <div class="wcard">
+    <div class="whdr" onclick="tw(this)">
+      <span class="wlbl">WEEK 2: APR 8–14 — SURGE</span>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="wtag">QUANT ADVANCED MATHS (HIGH FREQUENCY) · REASONING COMPLETE · GK HISTORY + POLITY · ENGLISH RC</span><span>▼</span></div>
+    </div>
+    <div class="wbody">
+      <div class="cl o mb16"><strong>WEEK OBJECTIVE:</strong> Geometry (2–4 Qs) + Trigonometry (1–4 Qs) + Mensuration (2–4 Qs) — these three together dominate advanced maths. Complete all Reasoning PYQs by end of week. Parmar: History (story method) + Polity basics. English: RC passages (5–8 Qs each paper).</div>
+      <div class="drow"><div class="dlbl">MON<br>APR 8</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Geometry — Lines, Angles, Triangles: Pinnacle PYQs + Aditya Sir/Gagan Pratap video. KEY SSC theorems to know COLD: Triangle inequality, similarity conditions (AA/SSS/SAS), Pythagoras and its converse, Angle bisector theorem, Apollonius theorem. Draw every theorem visually. Do NOT memorize — understand the geometric argument. If you can see WHY a theorem is true, you'll never forget it.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Pinnacle PYQs: Non-Verbal — Mirror Image + Paper Cutting (full sets). These are pure visual, zero memory. Speed target: 45 seconds max per question. When you get one wrong, stare at it and understand why — don't just check the answer.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Ancient India — Indus Valley, Vedic period, Maurya Empire. STORY MODE: Indus Valley (2500 BCE) — planned cities, bronze age, disappeared mysteriously → Vedic Period — nomadic Aryans, Sanskrit, Rigveda → Jainism/Buddhism emerge (6th century BCE) → Chandragupta Maurya unifies → Ashoka's transformation after Kalinga. One narrative. After: Pinnacle PYQs Ancient History.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> RC Strategy + Practice: 4 passages from Pinnacle PYQs. Method: Read Q first (note type: direct/inference/vocab/tone) → skim passage for answer → mark. TIME: 90 sec read + 3–4 min answers = 4.5–5.5 min per passage. Track your time per passage today to establish baseline.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">TUE–THU<br>APR 9–11</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Circles + Tangents (Tue): KEY SSC circle theorems: angle subtended at center = 2× at circumference, tangent ⊥ radius, tangent lengths from external point are equal, power of a point. These 4 facts cover 90% of circle questions. Pinnacle PYQs: Circles all questions.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Trigonometry (Wed): sin/cos/tan for 0°,30°,45°,60°,90° — BUILD this table from unit circle understanding, not rote. Then: basic identities (sin²θ+cos²θ=1 and its variants). Heights & Distances: tan θ = opposite/adjacent is ALL you need. Pinnacle Trig PYQs — do all.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Mensuration 2D + 3D (Thu): Triangle area formulas (base×h/2, Heron's), Circle, Cylinder, Cone, Sphere. The MOST ASKED SSC 3D question: "Metal sphere melted and recast into cones — how many?" → volume conservation. Volume of sphere = volume of n cones. This exact scenario appears 2–3 times per year. Know it cold.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> Complete remaining Reasoning PYQs: Input-Output (Tue), Venn Diagrams (Wed), Figure Series + Matrix (Thu). By Thu evening: ALL Reasoning PYQs complete. Build summary: which chapter gave you <80% accuracy?</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Medieval India — Delhi Sultanate (Wed) + Mughal Empire (Thu). MUGHAL TIMELINE STORY: 1526 Babur (Panipat I) → flees, comes back → son Humayun loses throne to Sher Shah → reclaims → son Akbar (1556–1605, greatest, Din-i-Ilahi, Navratnas) → Jahangir (Nur Jahan influence) → Shah Jahan (Taj Mahal, bankrupted empire) → Aurangzeb (re-imposed jizya, empire fragmented, death 1707 → decline begins). This is a story. Tell it out loud once.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am: Prepositions (Tue) + Conjunctions (Wed). Para Jumbles strategy (Thu): Find TOPIC sentence (most general, introduces subject), find CONCLUSION (most specific, brings closure), fill middle by transition words (however, therefore, moreover). Pinnacle PYQs: 20 Para Jumbles questions — time yourself.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">FRI–SUN<br>APR 12–14</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> DI SPECIAL SESSION (Fri — 3 hours): Data Interpretation is 3–6 questions per paper. Do 10 complete DI sets from Pinnacle PYQs. For each set: (1) Read chart title + axes (15 sec), (2) Note max/min values (10 sec), (3) Solve questions using approximation wherever possible. Target: 4 min per 5-question set. Mental % calculation speed is the key skill here — not conceptual understanding. Practice: "What is 37% of 248?" → approximately "40% of 250 = 100, minus 3% of 250 ≈ 7.5" = 92.5. Mental approximation within 2% is good enough for SSC DI.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Indian Polity (Sat) — Preamble, Part III (Fundamental Rights: Articles 12–35), Part IV (DPSPs), Parliament (Lok Sabha 543, Rajya Sabha 250, age limits). The ARTICLES TO KNOW COLD: Art. 14 (Equality), Art. 19 (Freedom), Art. 21 (Life & Personal Liberty), Art. 32 (Habeas Corpus etc.), Art. 368 (Amendment), Art. 356 (President's Rule). SSC repeatedly tests these. Connect each to a recent news event to solidify memory.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">MOCK</span> <strong>FULL MOCK #2</strong> (Sun). Target: 132+. Note: GK should be higher now (Science prep completed). Analyze specifically: DI performance (were you faster?), Coding-Decoding accuracy, Cloze Test hit rate. These three are trackable progress indicators.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">ANALYSIS</span> Update Error Register after Mock #2. Compare with Mock #1: which topics improved? Which worsened? Any topic that appears in BOTH mocks' error list = emergency priority for Week 3.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 3 -->
+  <div class="wcard">
+    <div class="whdr" onclick="tw(this)">
+      <span class="wlbl">WEEK 3: APR 15–21 — DOMINATION</span>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="wtag">QUANT ALGEBRA + NUMBER SYSTEM · GK ECONOMY + MODERN HISTORY · ENGLISH VOCAB SYSTEM · MOCK TARGET 145+</span><span>▼</span></div>
+    </div>
+    <div class="wbody">
+      <div class="cl o mb16"><strong>WEEK OBJECTIVE:</strong> Complete Quant: Algebra, Number System, Coordinate Geometry (lighter). Economy section of GK (trending upward — 1–5 Qs). English: Complete vocab system for Pinnacle PYQ synonyms/antonyms. By Sunday Mock #3: must break 145. GK should be at 28+ in mock by now.</div>
+      <div class="drow"><div class="dlbl">MON–WED<br>APR 15–17</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Algebra (Mon): (a+b)², (a-b)², (a+b+c)², (a³+b³), (a³−b³) — these 5 identities appear in 2–3 questions every paper. Understand them as patterns: (a+b)² = sum of squares + cross product. Derive them from scratch once. After that, they're intuitive. Pinnacle Algebra PYQs all.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Number System (Tue): Divisibility rules (2,3,4,5,6,8,9,11), LCM/HCF methods, Remainders (Fermat's little theorem not needed — just pattern). CYCLICITY: units digit of powers follows 4-year cycle (2¹=2,2²=4,2³=8,2⁴=16,2⁵=2...). Understand why — it's just modular arithmetic. Pinnacle Number System PYQs all.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Coordinate Geometry + Average (Wed): Coordinate Geo is light in SSC — 0–1 Qs. Just know distance formula, section formula, slope. Average: weighted average = Alligation. Same concept. Complete the chapter fast, move to DI revision.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Economy Lectures (Mon–Wed) — GDP/GNP/NNP, Fiscal/Monetary policy, RBI functions (banker to banks, issue of currency, CRR/SLR/Repo Rate — know the DIRECTION of each tool), Budget (Direct/Indirect tax, Revenue/Capital receipts), Banking sector basics. Economy is INCREASING in weightage — treat it seriously. Pinnacle PYQs: Economy chapter all.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Vocab System Build (Mon–Wed): Extract ALL synonyms/antonyms asked in Pinnacle CGL PYQs. Group by theme: Negative emotion words, Positive character words, Academic/Intellectual words, Legal/Governmental words. Today: 30 words, 3 themes. Write one story connecting each theme's words.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">THU–SAT<br>APR 18–20</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Modern India — 1757 (Plassey) → 1857 (First War of Independence) → 1885 (INC) → Gandhi era (Non-Cooperation 1920, Civil Disobedience 1930, Quit India 1942) → Independence 1947. KEY: SSC loves to test FIRST events: first Governor-General, first President, first Prime Minister, first Education Commission. Fat Man for these lists. Pinnacle PYQs: Modern History all.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="br">REASON</span> REASONING MASTERY SESSION (Sat): 75 mixed questions — timed at 45 min. This is a mock of just Reasoning. Check: are you at 23+/25 pace? Identify any sub-topic below 80% → dedicate 30 min to ONLY those question types.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Pinnacle: One-word substitution + Idioms/Phrases from PYQs. IDIOM GROUPING: Animal idioms (Bite the bullet, Let the cat out of the bag, Red herring), Body idioms (Bite off more than you can chew, Keep an eye on), Money idioms (Burn a hole in pocket, In the red). SSC repeats the same 100–150 idioms. All of them are in Pinnacle PYQs. You don't need any external source.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> Quant SECTIONAL TEST: 25 questions on Testbook — timed 20 min. After: check section breakdown — was it DI, Geometry, or Arithmetic where you lost marks? Update Error Register. Next week focuses on whatever was weakest here.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">SUN<br>APR 21</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">MOCK</span> <strong>FULL MOCK #3</strong> — TARGET 145. This is your benchmark mock. If below 140, emergency protocol activates next week (see Protocol tab). If above 145, proceed as planned.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">ANALYSIS</span> 2.5-hour analysis. Add all wrongs to Error Register. Special focus: GK wrongs — every wrong GK answer goes to GK Mistake Notebook (separate). Categorize: was it a fact you knew but forgot, OR a fact you'd never seen? The first category is fixable with spaced repetition. The second needs a new learning session.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WEEK 4 -->
+  <div class="wcard">
+    <div class="whdr" onclick="tw(this)">
+      <span class="wlbl">WEEK 4: APR 22–30 — SEAL THE FOUNDATION</span>
+      <div style="display:flex;align-items:center;gap:8px;"><span class="wtag">COMPLETE REVISION CYCLE 1 · 2 FULL MOCKS · GK GEOGRAPHY + STATIC GK · APRIL CA BLITZ</span><span>▼</span></div>
+    </div>
+    <div class="wbody">
+      <div class="cl o mb16"><strong>WEEK OBJECTIVE:</strong> No new chapters — only revision. Revisit only Pinnacle PYQ questions you got wrong. GK: Geography (India map-based) + Static GK (national symbols, awards, important days — Fat Man reference). April CA consolidation. Mock #4 target: 152+. By Apr 30, every chapter box is checked.</div>
+      <div class="drow"><div class="dlbl">APR 22–25</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bq">QUANT</span> 4-day Revision: Day 1 (Arithmetic all chapters — only wrong PYQs), Day 2 (Geometry+Trig+Mensuration wrong PYQs), Day 3 (DI: 8 complete sets timed), Day 4 (Algebra+Number System wrong PYQs). Goal: bring every chapter to 85%+ accuracy.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Parmar: Indian Geography (2 days) — Rivers (Himalayan: Ganga/Yamuna/Brahmaputra/Indus; Peninsular: Godavari/Krishna/Kaveri/Mahanadi/Narmada/Tapti), mountains, wildlife sanctuaries, National Parks. Keep India map in front. Trace every river. After: Pinnacle Geography PYQs.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> Fat Man: Static GK sections — National Symbols (animal/bird/flower/sport/song/emblem), Sports records (India-specific), Important Days, Awards (Bharat Ratna recipients, Nobel Prize Indians). These are list-heavy — Fat Man is your source. Pinnacle PYQs: Static GK chapter.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="be">ENG</span> Rani Ma'am: Any remaining grammar topics. Then: 50 mixed English PYQs in 35 minutes. Target: 38+/50 correct. Vocab check: test yourself on all themed vocab groups collected so far — cover the meaning, guess from word.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">APR 26–28</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">MOCK</span> <strong>FULL MOCK #4</strong> (Apr 26) — Target 152+. Different platform if possible (Adda247 or Oliveboard for fresh questions). After: 2-hour analysis same day.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bm">MOCK</span> <strong>FULL MOCK #5</strong> (Apr 28) — Target 155+. After this mock: tally total Error Register entries. Which subject has the most entries? That's your Month 2 priority shift.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">CA</span> April 2025 CA consolidation: Indologous monthly compilation. Build "High Yield CA List" — 60 facts from April. Only: appointments, national/international awards, sports results, science/technology launches, important bills passed.</span></div>
+        </div>
+      </div>
+      <div class="drow"><div class="dlbl">APR 29–30</div>
+        <div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt">📅 Month 1 Debrief: Score all 5 mocks. Draw trend line. Are you averaging 145+? List top 5 weak topics from Error Register. These 5 topics get 30 extra min/day in Month 2. Build Month 2 plan adjustments based on actual data, not assumptions.</span></div>
+          <div class="ti"><input type="checkbox" class="tc2" onchange="upd(this)"><span class="tt"><span class="bg">GK</span> GK Mistake Notebook review — full read-through of all entries. How many can you now recall correctly? Mark resolved entries. Unresolved ones: add to tomorrow morning's flashcard review.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MONTH 2 ═══ -->
+<div class="tc" id="tab-m2">
+  <div class="st">MONTH 2 — MAY 2025: MASTERY + SPEED</div>
+  <div class="sd">// No new topics. Speed drills, 3 mocks/week, deep analysis, weak area surgery. Target: 162+ by May 31.</div>
+  <div class="cl o mb20">
+    <strong>MONTH 2 SHIFT:</strong> You now know every chapter. Month 2 is about converting knowledge into marks under time pressure. The gap between "knowing" and "scoring" is speed + accuracy calibration. Three weekly mocks with same-day analysis. No new chapters — only Error Register refinement. Each week has a THEME.
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel">
+      <div class="ptit">WEEK 5 (MAY 1–7) — SPEED BAPTISM</div>
+      <ul class="sl">
+        <li>Daily morning: 25 Quant PYQs in 18 min + 25 Reasoning PYQs in 14 min + 25 English PYQs in 18 min. Track accuracy daily. Any section below 80% → afternoon: 45 min on that topic specifically.</li>
+        <li>GK: Parmar revision — 2 lectures/day rewatched. Don't re-read Fat Man — just self-quiz after each lecture. GK Mistake Notebook: 30-entry scan each morning.</li>
+        <li>Indologous: May CA starts. Log daily. Build running High Yield CA list for May.</li>
+        <li>Mocks: #6 (Sat) + #7 (Sun). Target: 158+. Analysis same day: 2 hours max, focus on Error Register additions.</li>
+        <li><strong>Key drill:</strong> Timed DI practice daily — 2 sets, 4 min each. DI speed is the biggest low-hanging fruit in Quant.</li>
+      </ul>
+    </div>
+    <div class="panel o">
+      <div class="ptit">WEEK 6 (MAY 8–14) — NEGATIVE MARKING WARFARE</div>
+      <ul class="sl">
+        <li><strong>This week's insight:</strong> You might be getting 90 questions right but losing 20 marks to wrong answers. The "confident-but-wrong" category in GK is your biggest enemy. Calibrate this week.</li>
+        <li>After every PYQ session: rate each attempted question 1–5 confidence. Check answers. "High confidence + wrong" = danger zone. Find patterns. These patterns become "never guess on this type" rules.</li>
+        <li>GK strategy refinement: For any GK question where you're &lt;65% sure, SKIP. The expected value math: 65% correct → +2×0.65=+1.3, wrong → −0.5×0.35=−0.175. Net EV = +1.125. Positive! Below 40% → EV = negative. Your threshold for GK: 60%+ confidence to attempt.</li>
+        <li>Mocks: #8 (Mon), #9 (Wed), #10 (Sat). Post-mock: track "questions skipped correctly" vs "questions where negative marking cost you." Build a personal "attempt rate vs score" graph.</li>
+        <li><strong>STRONG WEAK AREA SURGERY:</strong> Bottom 3 topics from Error Register get 2 hours each this week — redo ALL Pinnacle PYQs for those specific sub-topics. Not the full chapter. Just the specific question TYPES you keep getting wrong.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel g">
+      <div class="ptit">WEEK 7 (MAY 15–21) — ACCELERATION</div>
+      <ul class="sl">
+        <li>3 mocks this week: #11 (Mon), #12 (Wed), #13 (Fri). Each should be completed in 55 min (5 min buffer for review). Time management within the exam: Reasoning ≤12 min, English ≤15 min, Quant ≤18 min, GK ≤12 min. These are targets — not rigid. But you MUST know your per-section pace.</li>
+        <li>May CA mid-month compilation. Indologous: catch up if behind. Build 50-point High Yield May CA list.</li>
+        <li>English Marathon (Thu): 10 RC passages in one sitting. Speed-read each in 90 seconds, answer 4–5 questions in 4 minutes. Train for reading stamina.</li>
+        <li>GK: Science revision marathon (Fri): 3 hours. Chemistry + Biology + Physics — only Pinnacle PYQs wrong answers from Error Register. Science is 6–9 Qs. Getting 7–8 correct in Science alone would add 14–16 marks.</li>
+        <li>Sat: light revision + walk + rest. Sun: planning session — analyze all mocks from Month 2. What pattern of errors persists? Those are Month 3's enemies.</li>
+      </ul>
+    </div>
+    <div class="panel gold">
+      <div class="ptit">WEEK 8 (MAY 22–31) — CONSOLIDATION</div>
+      <ul class="sl">
+        <li>Subject-wise revision cycle 2: Quant (3 days) → English (2 days) → GK (3 days) → Reasoning (2 days). Only Error Register items — no full re-reads.</li>
+        <li>GK MEGA REVISION: Jan–May 2025 CA compilation via Indologous monthly PDFs. 100-point "High Yield CA" list finalized. Test yourself via flashcards or Testbook CA quiz.</li>
+        <li>Mocks: #14 (May 24) + #15 (May 31). Mock #15 = Month 2 Final Exam. Target: 163+. Gap analysis: 170 − Mock #15 score = focused Month 3 attack surface.</li>
+        <li><strong>Critical self-assessment:</strong> Is your GK score reaching 30+ in mocks? If not — Month 3 doubles GK daily time. Is English below 36? Month 3 → extra Cloze Test + RC practice. Your data drives Month 3, not this plan.</li>
+        <li>May 30: Full Error Register review. Remove resolved entries. Remaining entries = Month 3 hit list.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MONTH 3 ═══ -->
+<div class="tc" id="tab-m3">
+  <div class="st">MONTH 3 — JUNE → PRE EXAM</div>
+  <div class="sd">// ZERO new topics. Daily mocks. Peak performance calibration. War mode from June 15.</div>
+
+  <div class="cl g mb20">
+    <strong>MONTH 3 RULE SET:</strong> No new topics. No new platforms. No panic purchases of new books. You know everything. Month 3 is only about: (1) Executing what you know under time pressure, (2) Maintaining GK freshness through daily CA, (3) Closing the remaining Error Register items, (4) Calibrating your attempt strategy for maximum score.
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel g">
+      <div class="ptit">JUNE 1–14: SHARPENING</div>
+      <ul class="sl">
+        <li><strong>Mock frequency:</strong> Every 2 days. 9 full mocks in this window. Analysis same day, max 90 min. Focus only on Error Register items that keep reappearing.</li>
+        <li><strong>Morning ritual (30 min fixed):</strong> Scan GK Mistake Notebook (top 100 high-yield facts) + formula card review + 5 new vocab words passive scan. This is not active study — it's passive maintenance. Incredibly effective for memory consolidation at this stage.</li>
+        <li>June CA via Indologous: Daily. Exam will have 2–5 questions from last 2 months before exam.</li>
+        <li>Every Sunday: Back-to-back 2 full mocks with 30-min break. Trains fatigue resistance — you should be able to maintain same accuracy in mock #2 as mock #1.</li>
+        <li>English: 25 Pinnacle PYQs daily mixed. Special focus on Error Detection (grammar rules review every alternate day for 15 min). Vocab: test existing themed groups — no new words unless from PYQs.</li>
+        <li>Quant: 25 timed PYQs daily. DI: 2 sets every day — speed is the target, not accuracy (accuracy should already be there).</li>
+      </ul>
+    </div>
+    <div class="panel r">
+      <div class="ptit">JUNE 15 → EXAM: WAR MODE</div>
+      <ul class="sl">
+        <li><strong>Daily full mock — no exceptions.</strong> Complete in 55 minutes. 90-min analysis. Score everything in tracker above.</li>
+        <li>If any mock drops below 155: Emergency Protocol (see Protocol tab) activates immediately — no waiting, no "maybe next mock will be better."</li>
+        <li>July CA: Indologous daily. Expect 4–5 questions from July/August period in exam. Never miss a day.</li>
+        <li><strong>Sleep protocol:</strong> 7.5–8 hours. No negotiation. Memory consolidation happens in sleep. Skipping sleep for "one more mock" is negative expected value — you lose more than you gain.</li>
+        <li><strong>3 days before exam:</strong> No new mocks. Light GK top-100 list review. Walk for 30 min daily. Eat normally. Sleep by 10 PM. The exam is won or lost in 3 months of work, not these 3 days.</li>
+        <li><strong>Exam day sequence:</strong> Reasoning (12 min) → English (15 min) → Quant (18 min) → GK (12 min). Remaining 3 min for flagged questions. NEVER change an answer unless you have a specific, concrete reason — not "feeling."</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel mb20">
+    <div class="ptit">GK MONTH 3 — CURRENT AFFAIRS CALENDAR</div>
+    <div class="g3">
+      <div class="cl"><strong>JUNE CA:</strong> Indologous daily + Week 1–2 compilation. Focus: Budget 2025 implications, ISRO missions, G20/SCO developments, Sports championships (major tournaments). Build June High Yield list (50 facts).</div>
+      <div class="cl g"><strong>JULY CA:</strong> Exam likely July/Aug. Indologous daily. This is the MOST CRITICAL CA month. Any appointment, award, or national event from July will almost certainly appear in the exam. Never miss a single day.</div>
+      <div class="cl gold"><strong>CA FINAL REVIEW:</strong> Download Indologous Jan–Jul 2025 monthly PDFs (6 months). Build ONE mega 150-point High Yield CA list. Review this list every day for the final 2 weeks. This 150-point list could give you 4–5 questions directly.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ MAINS PLAN ═══ -->
+<div class="tc" id="tab-mains">
+  <div class="mains-band">
+    <div class="st">TIER 2 (MAINS) BATTLE PLAN</div>
+    <div style="font-family:'Share Tech Mono',monospace;font-size:.72rem;color:var(--dim2);margin-bottom:14px;">// REMEMBER: TIER 1 IS ONLY QUALIFYING. YOUR RANK AND POSTING ARE DETERMINED BY TIER 2 ALONE.</div>
+    <div class="cl gold mb16">
+      <strong>CRITICAL CONTEXT:</strong> After Pre result (expected Oct–Nov 2025), you'll typically have 2–3 months before Mains. The new Tier 2 pattern (2023 onwards) has English at 135 marks, Math at 90 marks, Reasoning at 90 marks, GK (Financial Awareness) at 75 marks. English is now the LARGEST section in Mains. Your Tier 1 prep is already building this foundation — use the Pre-to-Mains window to sharpen specifically.
+    </div>
+  </div>
+
+  <div class="g2 mb20">
+    <div class="panel gold">
+      <div class="ptit">TIER 2 — PATTERN vs TIER 1 COMPARISON</div>
+      <table class="t">
+        <tr><th>SECTION</th><th>TIER 1</th><th>TIER 2</th><th>CHANGE</th></tr>
+        <tr><td>Math</td><td>25Q / 50 marks</td><td>30Q / 90 marks</td><td style="color:var(--g2)">Higher difficulty, −1 neg</td></tr>
+        <tr><td>Reasoning</td><td>25Q / 50 marks</td><td>30Q / 90 marks</td><td style="color:var(--g2)">More complex puzzles, −1</td></tr>
+        <tr><td>English</td><td>25Q / 50 marks</td><td>45Q / 135 marks</td><td style="color:var(--red)">MUCH bigger, more vocab/RC</td></tr>
+        <tr><td>GK</td><td>25Q / 50 marks</td><td>25Q / 75 marks (Fin. Aware.)</td><td style="color:var(--g2)">More Economy/Finance focus</td></tr>
+        <tr><td>Computer</td><td>None</td><td>20Q / 60 marks (qualifying)</td><td style="color:var(--g3)">Easy, just don't skip</td></tr>
+        <tr><td style="color:var(--gold)">TOTAL MERIT</td><td>200</td><td>390 marks</td><td>—</td></tr>
+      </table>
+    </div>
+    <div class="panel o">
+      <div class="ptit">WHAT CHANGES IN TIER 2 STRATEGY</div>
+      <ul class="sl">
+        <li><strong>English becomes your #1 priority in Mains window.</strong> 135 marks — the single biggest section. Advanced RC, complex sentence correction, higher-level vocabulary. Your Tier 1 English prep is the foundation. Mains window builds the upper floor.</li>
+        <li><strong>Math: same syllabus, harder questions.</strong> Geometry and Algebra questions become more complex. DI sets have more data points. Your Tier 1 Pinnacle PYQs + Aditya Sir are sufficient — add Mains-specific Pinnacle PYQs (they have a separate Tier 2 book).</li>
+        <li><strong>GK → Financial Awareness.</strong> More questions on Economy, Banking, Finance, Budget. Less History/Science in Tier 2. Your economy prep in Tier 1 directly transfers — add: Budget 2025 in detail, Economic Survey, RBI Annual Report highlights, Banking regulation basics.</li>
+        <li><strong>−1 per wrong (not −0.5).</strong> This changes your attempt strategy significantly. In Tier 2, never attempt a question where you're &lt;65% confident. The cost of a wrong answer doubled relative to the reward.</li>
+        <li><strong>Computer section is qualifying only.</strong> MS Office basics, internet fundamentals, hardware/software. 2 days of prep in the Mains window is sufficient. Don't overthink this.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="st mt20 mb16" style="color:var(--gold)">MAINS WINDOW PLAN (2–3 MONTHS BETWEEN PRE AND MAINS)</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">WEEK 1–2: DIAGNOSTIC</div>
+      <div class="tl-body panel mt16 mb16">
+        <ul class="sl">
+          <li>Take 2 Tier 2 full mocks (Testbook has them). Understand the new format — 2.5 hour sessions, higher stakes. Note baseline score in each section.</li>
+          <li>Download Tier 2 Pinnacle PYQs (Math + English separately). These are different books from Tier 1. Begin chapter-wise PYQ analysis for Tier 2 Math — identify question difficulty jump from Tier 1.</li>
+          <li>Begin Tier 2 specific English practice: longer RC passages (500–700 words, 5–6 questions), complex cloze tests (10-blank passages), advanced sentence correction.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">WEEK 3–6: ENGLISH INTENSIVE (135 MARKS — YOUR BIGGEST BATTLEFIELD)</div>
+      <div class="tl-body panel mt16 mb16" style="border-color:rgba(255,107,0,.3)">
+        <ul class="sl">
+          <li><strong>RC Advanced:</strong> Tier 2 passages are denser and longer. Practice daily: 2 passages from previous Tier 2 PYQs. Focus on inference questions and author's tone — these are harder to guess and more frequently asked in Mains.</li>
+          <li><strong>Vocab Depth:</strong> Move beyond synonym/antonym recognition to contextual usage. Word Power Made Easy (Norman Lewis) — root word method. Learn 15 root words per week (micro = small, bene = good, mal = bad etc.). 15 roots × 5 words each = 75 words per week organically learned, not memorized.</li>
+          <li><strong>Grammar Advanced:</strong> Tier 2 sentence correction is harder. Parallel structure errors, misplaced modifiers, dangling participles — these appear more in Mains. Rani Ma'am has Tier 2-specific videos. Watch these specifically.</li>
+          <li><strong>Rani Ma'am + SP Bakshi (Objective General English book)</strong> — SP Bakshi is widely recommended for Tier 2 English. Use for advanced practice questions beyond Pinnacle PYQs.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">WEEK 3–6: MATH INTENSIVE (PARALLEL)</div>
+      <div class="tl-body panel mt16 mb16">
+        <ul class="sl">
+          <li>Tier 2 Math adds: advanced Geometry (more construction-based), Coordinate Geometry (proper treatment), Statistics (Mean/Median/Mode in data sets), Permutation & Combination basics.</li>
+          <li>Aditya Sir's Tier 2 batch (if available) is ideal. His "5000+ TCS MCQ" book covers Tier 2 level questions. Alternatively, Gagan Pratap Sir has Tier 2-specific content on YouTube.</li>
+          <li>DI becomes more complex in Tier 2: mixed charts, caselet-based DI. Practice 3 DI sets daily — target 4 minutes per set at Tier 2 level.</li>
+          <li>−1 marking strategy: In Tier 2 Math, NEVER guess. If you can't solve in 90 seconds, skip and return. Math in Tier 2 rewards patience — a wrong answer costs you 1 mark AND cancels a correctly solved question (net −3 swing).</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-date">WEEK 7 → MAINS EXAM: MOCKS + CALIBRATION</div>
+      <div class="tl-body panel mt16 mb16" style="border-color:rgba(0,255,136,.3)">
+        <ul class="sl">
+          <li>Mains mocks every 2 days (2.5-hour sessions). Analysis same day: 90 min. Track accuracy PER SECTION separately — never aggregate.</li>
+          <li>GK Financial Awareness: Download RBI Annual Report summary, Budget 2025 key announcements, Economic Survey highlights (1-pager summaries available online). Indologous CA continues daily.</li>
+          <li>Computer Knowledge: 2 days max. MS Word/Excel/PowerPoint shortcuts, internet protocols (HTTP/HTTPS, URL, browser), basic hardware (RAM, ROM, CPU, HDD/SSD), generations of computers. Qualifying — don't over-invest.</li>
+          <li>3 days before Mains: Same protocol as Pre. No new mocks. Light revision. Sleep 8 hours. Trust your preparation.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DAILY OPS ═══ -->
+<div class="tc" id="tab-ops">
+  <div class="st">DAILY OPERATIONS — 8–10 HOUR PROTOCOL</div>
+  <div class="sd">// System-designed schedule. Every slot has a purpose rooted in cognitive science.</div>
+
+  <div class="cl o mb20">
+    <strong>PHILOSOPHY:</strong> You run quant research models. Think of your daily schedule as a backtest: every slot is a data point. Deviation is noise. Consistent execution is the signal. The goal is not 10 hours of sitting — it's 10 hours of EFFECTIVE cognitive engagement. Sleep, breaks, and physical movement are not interruptions — they are features of the system.
+  </div>
+
+  <div class="panel mb20">
+    <div class="ptit">STANDARD WEEKDAY — MONTH 1 & 2</div>
+    <div class="sch-block"><div class="sch-time">5:45 AM</div><div class="sch-activity"><strong>Boot.</strong> No phone for 15 min. Water, face wash, brief outdoor walk. Prime the system.</div><div class="sch-dur">15 min</div></div>
+    <div class="sch-block"><div class="sch-time">6:00–6:30</div><div class="sch-activity"><span class="bg">GK</span> <strong>Passive Morning Review.</strong> Scan GK Mistake Notebook (no active memorization — just read). Formula card glance. 5 vocab words from yesterday. This uses sleep consolidation — your brain connected things overnight. Don't skip this slot.</div><div class="sch-dur">30 min</div></div>
+    <div class="sch-block"><div class="sch-time">6:30–8:30</div><div class="sch-activity"><span class="bq">QUANT</span> <strong>Primary Quant block — Peak cognitive window.</strong> Month 1: Black book concepts. Month 2: Timed PYQ drills. Hardest subject first = best cognitive resources. No music, no phone (airplane mode). Pomodoro: 50 min deep + 10 min break × 2.</div><div class="sch-dur">2 hrs</div></div>
+    <div class="sch-block"><div class="sch-time">8:30–9:15</div><div class="sch-activity"><span class="br">REASONING</span> <strong>Reasoning block.</strong> Still in analytical mode from Quant. Natural cognitive transition. Month 1: Chapter-wise Pinnacle PYQs. Month 2: 30 mixed timed questions in 18 min. Anything above 18 min for 30 Reasoning Qs = you need more speed work.</div><div class="sch-dur">45 min</div></div>
+    <div class="sch-block" style="border-left:3px solid var(--g3);background:rgba(0,255,136,.03)"><div class="sch-time">9:15–9:45</div><div class="sch-activity"><strong>☕ MANDATORY BREAK.</strong> Breakfast. No studying. Brief walk if possible. Brain consolidates short-term memory into long-term during rest. This break makes the morning session 30% more effective, not less.</div><div class="sch-dur">30 min</div></div>
+    <div class="sch-block"><div class="sch-time">9:45–11:45</div><div class="sch-activity"><span class="be">ENGLISH</span> <strong>English block.</strong> Slightly lower cognitive load after break — language learning benefits from this state. Month 1: Rani Ma'am video + Pinnacle PYQs for same chapter. Month 2: Timed mixed English PYQs + RC passages. Cloze Test: daily 2 passages, timed.</div><div class="sch-dur">2 hrs</div></div>
+    <div class="sch-block"><div class="sch-time">11:45–1:00</div><div class="sch-activity"><span class="bg">GK</span> <strong>Parmar Batch block.</strong> Watch 2–3 lectures. After EACH lecture: immediate Feynman (2 min) → Fat Man cross-reference (5 min) → Pinnacle PYQs for that exact topic. Never watch 3 lectures then do all PYQs — too much decay. Process one at a time.</div><div class="sch-dur">75 min</div></div>
+    <div class="sch-block" style="border-left:3px solid var(--g3);background:rgba(0,255,136,.03)"><div class="sch-time">1:00–2:30</div><div class="sch-activity"><strong>🍽️ LUNCH + REST.</strong> Eat. 20-min power nap (set alarm). Do NOT fight the post-lunch dip — use it. Power nap restores cognitive performance for the afternoon session. This is not laziness; it's biology.</div><div class="sch-dur">90 min</div></div>
+    <div class="sch-block"><div class="sch-time">2:30–3:30</div><div class="sch-activity"><span class="bg">CA</span> <strong>Current Affairs + GK Revision.</strong> Indologous CA (15–20 min). Then: self-quiz on today's Parmar topics (can you narrate them without notes?). GK Mistake Notebook: add today's wrong GK PYQs. Post-lunch slot = lower load, CA is perfect fit.</div><div class="sch-dur">60 min</div></div>
+    <div class="sch-block"><div class="sch-time">3:30–5:30</div><div class="sch-activity"><span class="bm">PRACTICE</span> <strong>Timed sectional mocks or full mock.</strong> Afternoon second wind (~3:30–5:00 PM) is your second peak. Use it for high-performance timed practice. Sectionals: 25Q per subject, 20 min each. Full mocks on mock days. ZERO comfort mode — always simulate exam conditions.</div><div class="sch-dur">2 hrs</div></div>
+    <div class="sch-block" style="border-left:3px solid var(--g3);background:rgba(0,255,136,.03)"><div class="sch-time">5:30–6:00</div><div class="sch-activity"><strong>🏃 PHYSICAL RESET.</strong> 30-min walk, light exercise, or outdoors. Non-negotiable. Movement flushes cortisol, resets hippocampus (memory center). Your evening session will be measurably sharper after this. This is not optional — it's part of the learning protocol.</div><div class="sch-dur">30 min</div></div>
+    <div class="sch-block"><div class="sch-time">6:00–7:30</div><div class="sch-activity"><strong>🔁 ANALYSIS + ERROR REGISTER.</strong> Mock analysis on mock days (full 90 min). On non-mock days: Error Register review + weak topic targeted practice (30 min). This slot is where your score actually improves. Low-quality analysis = wasted mock. Every wrong answer needs a root cause, not just a correct answer.</div><div class="sch-dur">90 min</div></div>
+    <div class="sch-block"><div class="sch-time">7:30–8:15</div><div class="sch-activity"><span class="be">ENG</span> <strong>Vocab + Reading.</strong> 10 new words review (passive — just read your themed word stories). 10 min Hindu editorial read (for RC stamina and vocab in context). This cumulative daily reading compounds — by Month 3, RC feels familiar, not foreign.</div><div class="sch-dur">45 min</div></div>
+    <div class="sch-block"><div class="sch-time">8:15–8:45</div><div class="sch-activity"><strong>📅 NEXT DAY PLAN.</strong> Write 5 SPECIFIC tasks for tomorrow (not "do Quant" — "do Pinnacle Geometry PYQs pages 45–67, target 85%"). Review today's Error Register additions. Pre-plan eliminates decision fatigue and lost morning time.</div><div class="sch-dur">30 min</div></div>
+    <div class="sch-block" style="border-left:3px solid var(--g3);background:rgba(0,255,136,.03)"><div class="sch-time">8:45–10:00</div><div class="sch-activity"><strong>🌙 WIND DOWN.</strong> Dinner. Relax. Passive GK if desired (news, documentary). No intense studying. Brain needs to consolidate the day. Avoid screens 20–30 min before sleep.</div><div class="sch-dur">75 min</div></div>
+    <div class="sch-block" style="background:rgba(0,0,0,.3)"><div class="sch-time">10:00 PM</div><div class="sch-activity"><strong>💤 SLEEP — 7.5 to 8 HOURS.</strong> Memory formation, pattern consolidation, error correction — all happen here. Skipping sleep to study more has negative expected value. A tired brain retains ~40% less than a rested one.</div><div class="sch-dur">7.5 hrs</div></div>
+  </div>
+
+  <div class="g2">
+    <div class="panel g">
+      <div class="ptit">SUNDAY RESET PROTOCOL</div>
+      <div class="sch-block"><div class="sch-time">7:00–8:30</div><div class="sch-activity">Morning GK narration + Formula cards (leisurely pace)</div><div class="sch-dur">90 min</div></div>
+      <div class="sch-block"><div class="sch-time">8:30–10:30</div><div class="sch-activity"><strong>FULL MOCK (60 min strict) + 60 min immediate analysis</strong></div><div class="sch-dur">2 hrs</div></div>
+      <div class="sch-block"><div class="sch-time">10:30–1:00</div><div class="sch-activity">Deep mock analysis + Error Register + weak topic identification</div><div class="sch-dur">2.5 hrs</div></div>
+      <div class="sch-block" style="background:rgba(0,255,136,.04);border-left:3px solid var(--g3)"><div class="sch-time">1:00–4:30</div><div class="sch-activity"><strong>REST / SOCIAL / LEISURE.</strong> Guilt-free. This is part of the system. Sustainable prep requires recovery.</div><div class="sch-dur">3.5 hrs</div></div>
+      <div class="sch-block"><div class="sch-time">4:30–6:00</div><div class="sch-activity">Weak topic from this week's mocks — targeted practice only</div><div class="sch-dur">90 min</div></div>
+      <div class="sch-block"><div class="sch-time">6:00–7:30</div><div class="sch-activity">GK weekly review — Feynman all Parmar topics from the week</div><div class="sch-dur">90 min</div></div>
+      <div class="sch-block"><div class="sch-time">7:30–9:00</div><div class="sch-activity">Next week planning + vocab review + casual Indologous CA</div><div class="sch-dur">90 min</div></div>
+    </div>
+    <div class="panel o">
+      <div class="ptit">EXECUTION PRINCIPLES</div>
+      <ul class="sl">
+        <li><strong>Phone:</strong> Airplane mode during every study block. No exceptions. Use StayFocusd or Digital Wellbeing — max 30 min social media/day. Notifications are the enemy of deep work. A quant researcher who can't control attention cannot outcompete thousands of aspirants who also study 8 hours.</li>
+        <li><strong>Study space:</strong> Same spot every day if possible. Environmental anchoring trains your brain to enter focus mode automatically when you sit there.</li>
+        <li><strong>Flow override:</strong> If you're in a genuine flow state on a topic (deep understanding happening), run 30 min over. Don't break mastery for schedule rigidity. Adjust the next slot.</li>
+        <li><strong>Energy crash at 3 PM:</strong> If you hit a wall, do 20 jumping jacks or walk outside for 5 minutes. Physical movement is the fastest cognitive reset. Faster than coffee.</li>
+        <li><strong>Music policy:</strong> Lofi/instrumental = acceptable during PYQ repetitive practice. ZERO music during concept learning, mock taking, or analysis.</li>
+        <li><strong>Weekly half-day off:</strong> Saturday afternoon. You have 3–4 months of sustained high effort ahead. Without recovery, performance degrades. The half-day off makes the other 6.5 days better, not worse.</li>
+        <li><strong>Hydration:</strong> 3 liters of water daily. Dehydration causes measurable cognitive decline. This is not a wellness tip — it's performance optimization.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ TRACKER ═══ -->
+<div class="tc" id="tab-chapters">
+  <div class="st">CHAPTER COMPLETION TRACKER</div>
+  <div class="sd">// Check off when: concept learned + ALL Pinnacle PYQs done for that chapter. Not before.</div>
+
+  <div class="panel mb16">
+    <div class="ptit">📐 QUANT — PINNACLE PYQs CHAPTER TRACKER</div>
+    <div class="rwrap">
+      <svg class="rsvg" viewBox="0 0 65 65"><circle class="rbg" cx="32.5" cy="32.5" r="26"/><circle class="rp" id="rq" cx="32.5" cy="32.5" r="26" stroke-dasharray="163" stroke-dashoffset="163"/><text class="rtxt" x="32.5" y="37" text-anchor="middle" id="rqt">0%</text></svg>
+      <div><div style="font-family:'Share Tech Mono';font-size:.72rem;color:var(--glow)">QUANT PROGRESS</div><div id="qcc" style="font-family:'Share Tech Mono';font-size:.62rem;color:var(--dim2);margin-top:4px;">0 / 18 chapters</div></div>
+    </div>
+    <div class="cgrid" id="cq"></div>
+  </div>
+
+  <div class="panel mb16">
+    <div class="ptit" style="color:var(--g3)">🧠 REASONING — PINNACLE PYQs CHAPTER TRACKER</div>
+    <div class="rwrap">
+      <svg class="rsvg" viewBox="0 0 65 65"><circle class="rbg" cx="32.5" cy="32.5" r="26"/><circle class="rp" id="rr" cx="32.5" cy="32.5" r="26" stroke="var(--g3)" stroke-dasharray="163" stroke-dashoffset="163"/><text class="rtxt" id="rrt" x="32.5" y="37" text-anchor="middle" style="fill:var(--g3)">0%</text></svg>
+      <div><div style="font-family:'Share Tech Mono';font-size:.72rem;color:var(--g3)">REASONING PROGRESS</div><div id="rcc" style="font-family:'Share Tech Mono';font-size:.62rem;color:var(--dim2);margin-top:4px;">0 / 15 chapters</div></div>
+    </div>
+    <div class="cgrid" id="cr"></div>
+  </div>
+
+  <div class="panel mb16">
+    <div class="ptit" style="color:var(--g2)">📖 ENGLISH — PINNACLE PYQs CHAPTER TRACKER</div>
+    <div class="rwrap">
+      <svg class="rsvg" viewBox="0 0 65 65"><circle class="rbg" cx="32.5" cy="32.5" r="26"/><circle class="rp" id="re" cx="32.5" cy="32.5" r="26" stroke="var(--g2)" stroke-dasharray="163" stroke-dashoffset="163"/><text class="rtxt" id="ret" x="32.5" y="37" text-anchor="middle" style="fill:var(--g2)">0%</text></svg>
+      <div><div style="font-family:'Share Tech Mono';font-size:.72rem;color:var(--g2)">ENGLISH PROGRESS</div><div id="ecc" style="font-family:'Share Tech Mono';font-size:.62rem;color:var(--dim2);margin-top:4px;">0 / 14 chapters</div></div>
+    </div>
+    <div class="cgrid" id="ce"></div>
+  </div>
+
+  <div class="panel mb16">
+    <div class="ptit" style="color:var(--gold)">🌍 GK / GS — PARMAR BATCH TOPIC TRACKER</div>
+    <div class="rwrap">
+      <svg class="rsvg" viewBox="0 0 65 65"><circle class="rbg" cx="32.5" cy="32.5" r="26"/><circle class="rp" id="rg" cx="32.5" cy="32.5" r="26" stroke="var(--gold)" stroke-dasharray="163" stroke-dashoffset="163"/><text class="rtxt" id="rgt" x="32.5" y="37" text-anchor="middle" style="fill:var(--gold)">0%</text></svg>
+      <div><div style="font-family:'Share Tech Mono';font-size:.72rem;color:var(--gold)">GK PROGRESS</div><div id="gcc" style="font-family:'Share Tech Mono';font-size:.62rem;color:var(--dim2);margin-top:4px;">0 / 16 topics</div></div>
+    </div>
+    <div class="cgrid" id="cg"></div>
+  </div>
+
+  <div style="text-align:center;margin-top:14px;">
+    <button onclick="resetCh()" style="background:rgba(255,34,68,.08);border:1px solid rgba(255,34,68,.3);border-radius:3px;color:var(--red);font-family:'Orbitron',sans-serif;font-size:.58rem;font-weight:700;letter-spacing:1px;padding:7px 18px;cursor:pointer;">⚠️ RESET ALL CHAPTERS</button>
+  </div>
+</div>
+
+<!-- ═══ ARSENAL ═══ -->
+<div class="tc" id="tab-arsenal">
+  <div class="st">ARSENAL — CORRECTED RESOURCE MAP</div>
+  <div class="sd">// Your actual resource stack, mapped to subjects. No filler recommendations.</div>
+
+  <div class="g2 mb20">
+    <div>
+      <div class="st" style="font-size:.7rem;margin-bottom:10px;">📐 QUANT RESOURCES</div>
+      <div class="panel mb10">
+        <div class="ptit">ADITYA RANJAN SIR — RANKERS GURUKUL</div>
+        <div class="cl" style="font-size:.78rem;"><strong>WHO:</strong> Currently Excise Inspector. Scored 50/50 in Maths in SSC CGL. Cleared CGL, CHSL, CPO, CDS (3 times). His "60 Days 60 Marathon" on YouTube is legendary. Channel: Rankers Gurukul. Also has paid courses on RG app. <br><strong>USE FOR:</strong> Speed shortcuts for every Quant chapter. His approach is "TCS question pattern" based — same as SSC's actual exam questions. Your Aditya Sir course = use for every chapter's shortcuts AFTER you understand the concept from Pinnacle PYQs cold-attempt. Particularly excellent for: Algebra identities, Profit/Loss tricks, and Mensuration shortcuts. <br><strong>His book:</strong> "5000+ TCS MCQ" — if you can get this, it's the closest supplement to Pinnacle PYQs for Quant.</div>
+      </div>
+      <div class="panel mb10">
+        <div class="ptit">GAGAN PRATAP SIR — YOUTUBE (FREE)</div>
+        <div style="font-size:.8rem;color:var(--txt);">Backup to Aditya Sir for concept-heavy chapters like Geometry and Trigonometry. His visual proof-based teaching of Geometry theorems is the best free resource available. Use when Aditya Sir's approach doesn't click for a specific chapter. Don't follow both for all chapters — too much redundancy. Aditya Sir primary, Gagan Pratap backup.</div>
+      </div>
+      <div class="panel">
+        <div class="ptit">PINNACLE QUANT PYQs — PRIMARY WEAPON</div>
+        <div style="font-size:.8rem;color:var(--txt);">20 years of SSC TCS questions. All question type variants you'll ever see. Chapter-wise in Month 1, mixed/timed in Month 2, Error Register items only in Month 3. The goal: 85%+ accuracy on every chapter before marking it complete.</div>
+      </div>
+    </div>
+    <div>
+      <div class="st" style="font-size:.7rem;margin-bottom:10px;">🧠 REASONING RESOURCES</div>
+      <div class="panel mb10">
+        <div class="ptit">VIKRAMJEET SIR — RANKERS GURUKUL / YOUTUBE</div>
+        <div class="cl g" style="font-size:.78rem;"><strong>WHO:</strong> On the same platform (RG/Rankers Gurukul) as Aditya Sir. Best for SSC Reasoning tricks, especially non-verbal patterns and newer pattern types (Matrix coding, Input-Output). His Non-verbal series is widely regarded as the most efficient for SSC specifically. If your Aditya Sir course includes Vikramjeet Sir's Reasoning, you're covered. <br><strong>USE FOR:</strong> Non-Verbal (Mirror, Paper, Dice, Figure Series), Matrix coding, Input-Output, and any chapter where cold PYQ attempts leave you puzzled. Only watch after attempting Pinnacle PYQs — this keeps engagement high and retention strong.</div>
+      </div>
+      <div class="panel">
+        <div class="ptit">PINNACLE REASONING PYQs — PRIMARY WEAPON</div>
+        <div style="font-size:.8rem;color:var(--txt);">Always attempt PYQs first before any lecture. Your pattern-recognition strength means cold attempts will reveal SSC's patterns faster than most aspirants. Use lectures only to understand WHY you got something wrong — not as introduction to topics. Reasoning is where Pinnacle PYQs alone could get you to 23+/25.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2 mb20">
+    <div>
+      <div class="st" style="font-size:.7rem;margin-bottom:10px;">📖 ENGLISH RESOURCES</div>
+      <div class="panel mb10">
+        <div class="ptit">RANI MA'AM — KD CAMPUS YOUTUBE (FREE)</div>
+        <div class="cl o" style="font-size:.78rem;"><strong>WHO:</strong> KD Live channel. THE gold standard for SSC English grammar. Rule-based, systematic, exam-oriented. Her 4M+ subscriber count reflects genuine quality. <br><strong>USE FOR:</strong> Every grammar chapter — Articles, Tenses, SVA, Voice, Narration, Conjunctions, Prepositions. Follow her sequence. One video + 20 Pinnacle PYQs same day. Her Error Detection rule videos are particularly valuable — 5 videos covering the top rule types responsible for 70%+ of error detection questions. <br><strong>IMPORTANT:</strong> No Black Book for English in your stack. Pinnacle English PYQs + Rani Ma'am = complete preparation. Don't buy extra books.</div>
+      </div>
+      <div class="panel">
+        <div class="ptit">PINNACLE ENGLISH PYQs — PRIMARY SOURCE</div>
+        <div style="font-size:.8rem;color:var(--txt);">All vocab (synonyms/antonyms) in your prep should come from Pinnacle English PYQs — SSC recycles from a ~1500-word pool. Learning words outside this pool is wasted time. All cloze test passages in Pinnacle = practice those. All idioms/one-word sub = extract and group by theme. This one book handles all vocabulary, all grammar practice, and all question type familiarity.</div>
+      </div>
+    </div>
+    <div>
+      <div class="st" style="font-size:.7rem;margin-bottom:10px;">🌍 GK RESOURCES</div>
+      <div class="panel mb10">
+        <div class="ptit">INDOLOGOUS — CURRENT AFFAIRS (PRIMARY)</div>
+        <div class="cl gold" style="font-size:.78rem;"><strong>WHO:</strong> Run by Anirudh Acharya. Most respected SSC-specific CA resource in the community. Their CA coverage is specifically curated for SSC — they know which events SSC tests and which to ignore. <br><strong>USE:</strong> Daily video/PDF (8–15 min). Download monthly PDFs at end of each month. Build your High Yield CA list from their monthly compilations. Their "One Liner Current Affairs" approach is exactly what SSC expects.<br><strong>YouTube channel:</strong> Indologous — search on YouTube. Free content. Paid monthly capsules also available (worth ₹100–200/month if you want structured format).<br><strong>TESTBOOK</strong> as backup for daily CA quiz practice and to test your CA knowledge.</div>
+      </div>
+      <div class="panel">
+        <div class="ptit">PARMAR BATCH + FAT MAN + PINNACLE GK PYQs</div>
+        <div style="font-size:.8rem;color:var(--txt);">Parmar Batch = lecture sequence spine. Fat Man = cross-reference reference (never standalone read). Pinnacle GK PYQs = immediately after each Parmar topic. The 4-step loop (Watch → Feynman → Fat Man → Pinnacle PYQs) is your GK engine. Run it for every single Parmar lecture. No shortcuts here — GK requires repetition cycles that only this structured loop provides.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="ptit">MOCK TEST PLATFORMS — STRATEGY</div>
+    <div class="g3">
+      <div class="cl" style="font-size:.78rem;"><strong>TESTBOOK (PRIMARY)</strong> — Your main mock platform. Has the most SSC CGL mocks available, closest to actual exam difficulty and format. Sectional tests + full mocks both available. Analytics show chapter-wise accuracy — use this data weekly.</div>
+      <div class="cl o" style="font-size:.78rem;"><strong>ADDA247 / OLIVEBOARD (SECONDARY)</strong> — For fresh questions after you've exhausted Testbook's question bank variety. Different question sets prevent "I've seen this" bias. Use from Month 2 Week 6 onwards.</div>
+      <div class="cl g" style="font-size:.78rem;"><strong>MOCK DISCIPLINE:</strong> Always simulate exact exam conditions — no phone nearby, no dictionary, silent room, 60-minute timer without pause. A "relaxed mock" gives you inaccurate data and false confidence. Accurate data from strict mocks is worth 3x more than high scores from relaxed mocks.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ PROTOCOL ═══ -->
+<div class="tc" id="tab-protocol">
+  <div class="st">DISCIPLINE PROTOCOL — REWARD & CONSEQUENCE ENGINE</div>
+  <div class="sd">// Behavioral reinforcement system. Tell someone about this. Public commitment increases follow-through by 65%.</div>
+
+  <div class="rp-grid">
+    <div class="rcard rc-rw">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--g3);margin-bottom:12px;">🏆 REWARD PROTOCOL</div>
+      <div class="rcit"><div class="rci">🎮</div><div><strong>Mock score 160+:</strong> 45 min of whatever you want that evening. No guilt, full permission.</div></div>
+      <div class="rcit"><div class="rci">🍕</div><div><strong>Full week on schedule (7/7):</strong> Sunday favourite meal order. Non-negotiable reward.</div></div>
+      <div class="rcit"><div class="rci">📺</div><div><strong>Month 1 mock average 145+:</strong> One full movie night (2–3 hrs). Completely guilt-free.</div></div>
+      <div class="rcit"><div class="rci">🛍️</div><div><strong>Month 2 average 160+:</strong> Buy something you've wanted. You've earned it.</div></div>
+      <div class="rcit"><div class="rci">📱</div><div><strong>Score 170+ in any mock:</strong> 2 hours completely free. No studying. Championship-level performance deserves a break.</div></div>
+      <div class="rcit"><div class="rci">⚡</div><div><strong>Complete all Pinnacle PYQs for any subject:</strong> Acknowledge it. Tell a friend. This is a major milestone.</div></div>
+      <div class="rcit"><div class="rci">☕</div><div><strong>5 consecutive days on schedule:</strong> One afternoon completely off. This is maintenance, not celebration.</div></div>
+    </div>
+
+    <div class="rcard rc-pn">
+      <div style="font-family:'Orbitron',sans-serif;font-size:.72rem;font-weight:700;letter-spacing:2px;color:var(--red);margin-bottom:12px;">💀 CONSEQUENCE PROTOCOL</div>
+      <div class="rcit"><div class="rci">🔴</div><div><strong>Skip full study day (no valid reason):</strong> Next day is mandatory 10-hour session. Miss the day, pay double. No renegotiation.</div></div>
+      <div class="rcit"><div class="rci">📵</div><div><strong>Social media &gt;45 min/day:</strong> Add 30 min to next morning session. Track honestly — lying to yourself is the real punishment.</div></div>
+      <div class="rcit"><div class="rci">📉</div><div><strong>Mock below 145 in Month 2:</strong> Skip Sunday leisure block. Full 4-hour analysis + weak topic drilling instead.</div></div>
+      <div class="rcit"><div class="rci">🚫</div><div><strong>Skip mock analysis after a test:</strong> No new content next day. ONLY analysis. You cannot afford to waste a mock. This is the single most costly mistake in SSC prep.</div></div>
+      <div class="rcit"><div class="rci">⏰</div><div><strong>Under 6 hours on a scheduled day:</strong> Missing hours added to next Sunday morning. No excuses accepted.</div></div>
+      <div class="rcit"><div class="rci">🔒</div><div><strong>Binge scroll/streaming during study hours:</strong> 1-hour phone lock using Digital Wellbeing or StayFocusd. Pattern must be broken physically, not by willpower alone.</div></div>
+      <div class="rcit"><div class="rci">😤</div><div><strong>3 consecutive poor performance days:</strong> Reset day — stop content. Revisit your WHY: write 3 sentences about why you're doing this. Then return to schedule. This addresses the actual problem (motivation drift), not the symptom.</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+  <div class="st mt16">EMERGENCY PROTOCOLS</div>
+
+  <div class="g3 mt16">
+    <div class="panel r">
+      <div class="ptit">🚨 SCORE STAGNATES</div>
+      <ul class="sl">
+        <li>Stop new content for 3 days immediately</li>
+        <li>Full Error Register audit: find top 5 recurring error types</li>
+        <li>Those 5 types = ONLY focus for 3 days. Not full chapters — specific question types</li>
+        <li>Fresh mock from a different platform on Day 4</li>
+        <li>Stagnation is almost always caused by 2–3 fixable patterns, not everything. Diagnosis first, treatment second.</li>
+      </ul>
+    </div>
+    <div class="panel o">
+      <div class="ptit">🔥 BURNOUT PROTOCOL</div>
+      <ul class="sl">
+        <li>Full day off — no guilt, no compensation session</li>
+        <li>Day 2: 4 hours max, easiest topics only (Reasoning practice for fun)</li>
+        <li>Day 3: 6 hours, back to rhythm</li>
+        <li>Day 4: Full schedule</li>
+        <li>Change study location if possible — novelty resets motivation. Work from a cafe, library, or terrace for one day.</li>
+        <li>Burnout = signal, not failure. It means the system needs a reset, not abandonment.</li>
+      </ul>
+    </div>
+    <div class="panel gold">
+      <div class="ptit">🏹 GK STILL LOW AFTER MONTH 1</div>
+      <ul class="sl">
+        <li>Emergency rebalance: GK gets 3 hrs/day (was 75 min) for 5 days</li>
+        <li>Specific focus: Science section (Chemistry + Biology) — highest frequency, most improvable fast</li>
+        <li>Build "200 High-Yield GK Facts" list from Pinnacle GK PYQs wrong answers only. Read list every morning passively.</li>
+        <li>Indologous: download all available monthly CA PDFs, go through in 2-day intensive</li>
+        <li>Economy section: 1 hour dedicated daily — this is the trending upward section. Prioritize RBI functions, Budget terms, GDP types.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="cl gold mt20">
+    <strong>FINAL COMMAND:</strong> You scored 115 baseline with zero prep as a Quantitative Researcher. The cognitive machinery is already there. What's missing is systematic coverage of GK (Science + Economy) and English (Cloze + RC + grammar rules). The plan above closes both gaps with surgical precision. Every suggestion is based on actual SSC PYQ frequency data, not conventional wisdom. Execute the plan, trust the Error Register, run the Indologous CA daily, and finish every Parmar lecture with the 4-step Feynman loop. That's it. Top 5% is a systems problem, not a talent problem. You have the talent. Build the system. ⚡
+  </div>
+</div>
+
+<!-- ═══ GITHUB SETUP MODAL ═══ -->
+<div class="modal-overlay hidden" id="setupModal">
+  <div class="modal-box">
+    <div class="modal-title">☁ GITHUB SYNC SETUP</div>
+    <div class="modal-sub">// YOUR PROGRESS LIVES IN YOUR OWN GITHUB REPO · NO THIRD-PARTY SERVICES</div>
+
+    <div id="setupStep1">
+      <p style="font-size:.82rem;color:var(--txt);margin-bottom:16px;">This stores your entire progress (checkboxes, mocks, chapters) as a single <code style="color:var(--glow);background:rgba(0,212,255,.1);padding:1px 5px;border-radius:2px;">progress.json</code> file inside your GitHub repo. Every change auto-saves. Works on any device, any browser — as long as you open the same GitHub Pages URL.</p>
+
+      <div class="divider-line"></div>
+      <div style="font-family:'Orbitron',sans-serif;font-size:.6rem;color:var(--dim2);letter-spacing:2px;margin-bottom:12px;">ONE-TIME SETUP — 3 MINUTES</div>
+      <ol class="steps-list">
+        <li>Create a <strong>new private repo</strong> on GitHub (e.g. <code style="color:var(--glow)">ssc-cgl-tracker</code>). Private = your data stays private.</li>
+        <li>Go to <strong>Settings → Pages</strong> in that repo. Set source to <code style="color:var(--glow)">main</code> branch, <code style="color:var(--glow)">/root</code>. Save. GitHub gives you a URL like <code style="color:var(--glow)">https://yourusername.github.io/ssc-cgl-tracker</code></li>
+        <li>Upload this HTML file to the repo root, renamed to <code style="color:var(--glow)">index.html</code>.</li>
+        <li>Go to <a href="https://github.com/settings/tokens/new" target="_blank">github.com/settings/tokens/new</a> → Generate a <strong>Classic token</strong> with only the <strong><code>repo</code></strong> scope checked. Copy the token (shown only once).</li>
+        <li>Enter your details below and click Connect.</li>
+      </ol>
+      <div class="divider-line"></div>
+
+      <label class="field-label">GITHUB USERNAME</label>
+      <input class="field-input" id="ghUser" type="text" placeholder="e.g. shsarv" autocomplete="off" spellcheck="false">
+
+      <label class="field-label">REPOSITORY NAME</label>
+      <input class="field-input" id="ghRepo" type="text" placeholder="e.g. ssc-cgl-tracker" autocomplete="off" spellcheck="false">
+
+      <label class="field-label">PERSONAL ACCESS TOKEN</label>
+      <input class="field-input" id="ghToken" type="password" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" autocomplete="off">
+      <div class="field-hint">⚠️ Token is stored only in your browser's localStorage — never sent anywhere except GitHub's own API. Use a <strong>fine-grained token</strong> with only <strong>Contents: Read & Write</strong> permission on this one repo for maximum security.</div>
+
+      <div id="setupErr" class="modal-err"></div>
+
+      <div style="display:flex;gap:10px;margin-top:6px;flex-wrap:wrap;">
+        <button class="modal-btn primary" onclick="connectGitHub()">⚡ CONNECT & SYNC</button>
+        <button class="modal-btn secondary" onclick="closeSetup()">USE LOCAL ONLY</button>
+        <button class="modal-btn secondary" id="disconnectBtn" style="display:none;border-color:rgba(255,34,68,.3);color:var(--red)" onclick="disconnectGitHub()">DISCONNECT</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">OPERATION TOP 5% v2.0 · PRE + MAINS COMPLETE PLAN · BUILT ON REAL PYQ DATA · SARV · GODSPEED ⚡</div>
+
+<script>
+// ══════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════
+const CHD = {
+  q:[
+    ['Percentage','ARITH'],['Ratio & Alligation','ARITH'],['Profit/Loss/Discount','ARITH'],
+    ['SI & CI','ARITH'],['Time & Work / Pipe','ARITH'],['Speed/Distance/Time','ARITH'],
+    ['Average','ARITH'],['Number System','NUM'],['Algebra — Identities','ADV'],
+    ['Geometry — Triangles','ADV'],['Geometry — Circles','ADV'],['Trigonometry','ADV'],
+    ['Mensuration 2D','ADV'],['Mensuration 3D','ADV'],['Coordinate Geometry','ADV'],
+    ['Data Interpretation','DI'],['Statistics basics','MISC'],['Sequence/Perm basics','MISC']
+  ],
+  r:[
+    ['Analogy (Verbal)','VERBAL'],['Number Series','VERBAL'],['Alphanumeric Series','VERBAL'],
+    ['Coding-Decoding','VERBAL'],['Syllogism','VERBAL'],['Mathematical Operator','VERBAL'],
+    ['Blood Relations','VERBAL'],['Classification/Odd One Out','VERBAL'],
+    ['Non-Verbal: Mirror Image','NON-V'],['Non-Verbal: Paper Folding','NON-V'],
+    ['Non-Verbal: Figure Series','NON-V'],['Non-Verbal: Dice/Cube','NON-V'],
+    ['Matrix Coding (New)','NON-V'],['Venn Diagram','LOGIC'],['Direction Sense','LOGIC']
+  ],
+  e:[
+    ['Articles & Prepositions','GRAM'],['Tenses','GRAM'],['S-V Agreement','GRAM'],
+    ['Active-Passive Voice','GRAM'],['Direct-Indirect Speech','GRAM'],
+    ['Conjunctions/Conditionals','GRAM'],['Degrees of Comparison','GRAM'],
+    ['Error Detection (Full)','PRAC'],['Sentence Improvement','PRAC'],
+    ['Fill in the Blanks','PRAC'],['Cloze Test (100+ passages)','PRAC'],
+    ['Para Jumbles','PRAC'],['Reading Comprehension','PRAC'],
+    ['Vocab: Synonyms/Antonyms/Idioms (Pinnacle PYQs)','VOCAB']
+  ],
+  g:[
+    ['Chemistry (all Parmar + Pinnacle)','SCI'],['Biology (all Parmar + Pinnacle)','SCI'],
+    ['Physics (all Parmar + Pinnacle)','SCI'],
+    ['Ancient India History','HIST'],['Medieval India History','HIST'],
+    ['Modern India + Freedom Movement','HIST'],
+    ['Indian Geography (rivers/mountains/NP)','GEO'],['World Geography basics','GEO'],
+    ['Indian Polity + Constitution','POLITY'],
+    ['Indian Economy + Budget','ECON'],['RBI + Banking + Fiscal Policy','ECON'],
+    ['Inventions & Computers','MISC'],['Sports/Awards/National Symbols','MISC'],
+    ['Important Days + Static GK','MISC'],
+    ['Current Affairs Jan–Jul 2025 (Indologous)','CA'],
+    ['GK PYQs — Pinnacle Complete Set','PYQ']
+  ]
+};
+
+let ST = {};
+const LS_STATE = 'cgl_v2';
+const LS_GH    = 'cgl_github_cfg';
+const LS_SHA   = 'cgl_github_sha';
+const GH_FILE  = 'progress.json';
+
+// ── local fallback ──
+function lsLoad(){ try{ return JSON.parse(localStorage.getItem(LS_STATE)||'{}'); }catch(e){ return {}; } }
+function lsSave(){ localStorage.setItem(LS_STATE, JSON.stringify(ST)); }
+
+// ── github config ──
+function ghConfig(){ try{ return JSON.parse(localStorage.getItem(LS_GH)||'null'); }catch(e){ return null; } }
+function ghSetConfig(c){ localStorage.setItem(LS_GH, JSON.stringify(c)); }
+function ghClearConfig(){ localStorage.removeItem(LS_GH); localStorage.removeItem(LS_SHA); }
+
+// ══════════════════════════════════════════════════════
+// GITHUB API
+// ══════════════════════════════════════════════════════
+function ghHeaders(token){
+  return {
+    'Authorization': 'token ' + token,
+    'Accept': 'application/vnd.github.v3+json',
+    'Content-Type': 'application/json'
+  };
+}
+
+function ghFileURL(cfg){
+  return `https://api.github.com/repos/${cfg.user}/${cfg.repo}/contents/${GH_FILE}`;
+}
+
+async function ghFetch(cfg){
+  // Returns {ok, data, sha, notFound}
+  try {
+    const res = await fetch(ghFileURL(cfg), { headers: ghHeaders(cfg.token) });
+    if(res.status === 404) return { ok: true, notFound: true };
+    if(!res.ok){
+      const err = await res.json().catch(()=>({}));
+      return { ok: false, error: err.message || `HTTP ${res.status}` };
+    }
+    const json = await res.json();
+    const sha = json.sha;
+    const content = JSON.parse(atob(json.content.replace(/\n/g,'')));
+    return { ok: true, data: content, sha };
+  } catch(e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+async function ghPush(cfg, data){
+  const sha = localStorage.getItem(LS_SHA);
+  const body = {
+    message: `SSC CGL progress update — ${new Date().toLocaleString('en-IN')}`,
+    content: btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2)))),
+    ...(sha ? { sha } : {})
+  };
+  try {
+    const res = await fetch(ghFileURL(cfg), {
+      method: 'PUT',
+      headers: ghHeaders(cfg.token),
+      body: JSON.stringify(body)
+    });
+    if(!res.ok){
+      const err = await res.json().catch(()=>({}));
+      return { ok: false, error: err.message || `HTTP ${res.status}` };
+    }
+    const json = await res.json();
+    // Update SHA (needed for next write — GitHub requires current SHA to update a file)
+    if(json.content && json.content.sha) localStorage.setItem(LS_SHA, json.content.sha);
+    return { ok: true };
+  } catch(e) {
+    return { ok: false, error: e.message };
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// SYNC STATUS UI
+// ══════════════════════════════════════════════════════
+function setSyncStatus(state, text){
+  const dot = document.getElementById('syncDot');
+  const lbl = document.getElementById('syncLabel');
+  dot.className = 'sync-dot' + (state === 'ok' ? ' ok' : state === 'err' ? ' err' : state === 'busy' ? ' busy' : '');
+  lbl.textContent = text;
+  lbl.style.color = state === 'ok' ? 'var(--g3)' : state === 'err' ? 'var(--red)' : state === 'busy' ? 'var(--gold)' : 'var(--dim2)';
+}
+
+function updateBanners(){
+  const cfg = ghConfig();
+  const banner = document.getElementById('setupBanner');
+  const okBanner = document.getElementById('syncOkBanner');
+  if(cfg){ banner.classList.add('hidden'); okBanner.style.display='flex'; }
+  else   { banner.classList.remove('hidden'); okBanner.style.display='none'; }
+}
+
+// ══════════════════════════════════════════════════════
+// DEBOUNCED AUTO-SAVE TO GITHUB
+// ══════════════════════════════════════════════════════
+let saveTimer = null;
+async function scheduleSave(){
+  lsSave(); // always save local immediately
+  const cfg = ghConfig();
+  if(!cfg) return;
+  clearTimeout(saveTimer);
+  setSyncStatus('busy', 'SAVING…');
+  saveTimer = setTimeout(async ()=>{
+    const res = await ghPush(cfg, ST);
+    if(res.ok){ setSyncStatus('ok', 'SYNCED'); }
+    else       { setSyncStatus('err', 'SYNC ERR'); console.warn('GitHub save failed:', res.error); }
+  }, 800); // 800ms debounce — batches rapid checkbox ticking
+}
+
+// ══════════════════════════════════════════════════════
+// INITIAL LOAD FROM GITHUB
+// ══════════════════════════════════════════════════════
+async function initialLoad(){
+  ST = lsLoad(); // start with local data immediately so UI feels instant
+  const cfg = ghConfig();
+  if(!cfg){ setSyncStatus('none', 'NO SYNC'); updateBanners(); return; }
+
+  setSyncStatus('busy', 'LOADING…');
+  updateBanners();
+  const res = await ghFetch(cfg);
+  if(!res.ok){
+    setSyncStatus('err', 'LOAD ERR');
+    console.warn('GitHub load failed:', res.error);
+    return;
+  }
+  if(res.notFound){
+    // First time — push current local state to create the file
+    setSyncStatus('busy', 'INIT…');
+    const push = await ghPush(cfg, ST);
+    setSyncStatus(push.ok ? 'ok' : 'err', push.ok ? 'SYNCED' : 'PUSH ERR');
+    return;
+  }
+  // Merge: GitHub is source of truth — but only if it has MORE data
+  // (prevents wiping local data if someone opens on a fresh browser first)
+  const ghTasks  = Object.keys(res.data).filter(k=>k.startsWith('task_')).length;
+  const lsTasks  = Object.keys(ST).filter(k=>k.startsWith('task_')).length;
+  if(ghTasks >= lsTasks){
+    ST = res.data;
+    if(res.sha) localStorage.setItem(LS_SHA, res.sha);
+    lsSave();
+  } else {
+    // Local has more data — push local to GitHub to reconcile
+    await ghPush(cfg, ST);
+    if(res.sha) localStorage.setItem(LS_SHA, res.sha);
+  }
+  setSyncStatus('ok', 'SYNCED');
+}
+
+// ══════════════════════════════════════════════════════
+// SETUP MODAL
+// ══════════════════════════════════════════════════════
+function openSetup(){
+  const modal = document.getElementById('setupModal');
+  modal.classList.remove('hidden');
+  const cfg = ghConfig();
+  if(cfg){
+    document.getElementById('ghUser').value  = cfg.user  || '';
+    document.getElementById('ghRepo').value  = cfg.repo  || '';
+    document.getElementById('ghToken').value = cfg.token || '';
+    document.getElementById('disconnectBtn').style.display = 'inline-block';
+  } else {
+    document.getElementById('disconnectBtn').style.display = 'none';
+  }
+}
+function closeSetup(){ document.getElementById('setupModal').classList.add('hidden'); }
+
+async function connectGitHub(){
+  const user  = document.getElementById('ghUser').value.trim();
+  const repo  = document.getElementById('ghRepo').value.trim();
+  const token = document.getElementById('ghToken').value.trim();
+  const errEl = document.getElementById('setupErr');
+  errEl.style.display = 'none';
+
+  if(!user || !repo || !token){
+    errEl.textContent = '⚠ All three fields are required.';
+    errEl.style.display = 'block'; return;
+  }
+
+  const cfg = { user, repo, token };
+  setSyncStatus('busy', 'TESTING…');
+
+  // Test: try to read the repo (GET /repos/:owner/:repo)
+  try {
+    const testRes = await fetch(`https://api.github.com/repos/${user}/${repo}`, { headers: ghHeaders(token) });
+    if(testRes.status === 401){ throw new Error('Token invalid or expired. Generate a new one.'); }
+    if(testRes.status === 404){ throw new Error(`Repo "${user}/${repo}" not found. Check the name and ensure your token has access.`); }
+    if(!testRes.ok){ throw new Error(`GitHub returned HTTP ${testRes.status}.`); }
+  } catch(e){
+    errEl.textContent = '⚠ ' + e.message;
+    errEl.style.display = 'block';
+    setSyncStatus('err', 'AUTH ERR');
+    return;
+  }
+
+  // Save config
+  ghSetConfig(cfg);
+
+  // Push current state
+  setSyncStatus('busy', 'PUSHING…');
+  const push = await ghPush(cfg, ST);
+  if(!push.ok){
+    errEl.textContent = '⚠ Connected but failed to write file: ' + push.error + '. Make sure your token has "repo" or "Contents: Write" permission.';
+    errEl.style.display = 'block';
+    setSyncStatus('err', 'WRITE ERR');
+    return;
+  }
+
+  setSyncStatus('ok', 'SYNCED');
+  updateBanners();
+  document.getElementById('disconnectBtn').style.display = 'inline-block';
+  errEl.style.display = 'none';
+
+  // Show success in error div (reuse for green message)
+  errEl.style.display = 'block';
+  errEl.style.background = 'rgba(0,255,136,.06)';
+  errEl.style.borderColor = 'rgba(0,255,136,.3)';
+  errEl.style.color = 'var(--g3)';
+  errEl.textContent = '✅ Connected! Your progress is now synced to GitHub. Close this dialog.';
+}
+
+function disconnectGitHub(){
+  if(!confirm('Disconnect GitHub sync? Your local progress is kept, but will no longer auto-save to GitHub.')) return;
+  ghClearConfig();
+  setSyncStatus('none', 'NO SYNC');
+  updateBanners();
+  document.getElementById('disconnectBtn').style.display = 'none';
+  const errEl = document.getElementById('setupErr');
+  errEl.style.cssText = '';
+  errEl.style.display = 'none';
+}
+
+// Close modal on overlay click
+document.getElementById('setupModal').addEventListener('click', function(e){
+  if(e.target === this) closeSetup();
+});
+
+// ══════════════════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════════════════
+function showTab(id){
+  document.querySelectorAll('.tc').forEach(t=>t.classList.remove('act'));
+  document.querySelectorAll('.tbtn').forEach(b=>b.classList.remove('act'));
+  document.getElementById('tab-'+id).classList.add('act');
+  event.currentTarget.classList.add('act');
+}
+
+// ── WEEKS ──
+function tw(hdr){
+  const body = hdr.nextElementSibling;
+  const open = body.classList.toggle('open');
+  hdr.classList.toggle('open', open);
+}
+
+// ══════════════════════════════════════════════════════
+// TASKS
+// ══════════════════════════════════════════════════════
+function upd(cb){
+  const all = [...document.querySelectorAll('.tc2')];
+  ST['task_'+all.indexOf(cb)] = cb.checked;
+  cb.nextElementSibling.classList.toggle('done', cb.checked);
+  refreshHeader();
+  scheduleSave();
+}
+
+function loadTasks(){
+  [...document.querySelectorAll('.tc2')].forEach((cb,i)=>{
+    if(ST['task_'+i]){ cb.checked=true; cb.nextElementSibling.classList.add('done'); }
+  });
+}
+
+function refreshHeader(){
+  const all = [...document.querySelectorAll('.tc2')];
+  const done = all.filter(c=>c.checked).length;
+  document.getElementById('opct').textContent = Math.round(done/Math.max(all.length,1)*100)+'%';
+  document.getElementById('odone').textContent = done;
+  refreshChProgress();
+}
+
+// ══════════════════════════════════════════════════════
+// CHAPTERS
+// ══════════════════════════════════════════════════════
+function renderCh(){
+  [['q','cq','rq','rqt','qcc'],['r','cr','rr','rrt','rcc'],['e','ce','re','ret','ecc'],['g','cg','rg','rgt','gcc']].forEach(([k,cid,rid,tid,cnt])=>{
+    const container = document.getElementById(cid);
+    if(!container) return;
+    container.innerHTML='';
+    CHD[k].forEach(([name,tag],i)=>{
+      const done = ST['ch_'+k+'_'+i]==='1';
+      const d = document.createElement('div');
+      d.className='chi'+(done?' dn':'');
+      d.innerHTML=`<input type="checkbox" class="chcb" ${done?'checked':''} onchange="togCh('${k}',${i},this)"><span class="chn">${name}</span><span class="cht">${tag}</span>`;
+      container.appendChild(d);
+    });
+  });
+  refreshChProgress();
+}
+
+function togCh(k,i,cb){
+  ST['ch_'+k+'_'+i] = cb.checked?'1':'0';
+  cb.parentElement.classList.toggle('dn', cb.checked);
+  refreshChProgress();
+  scheduleSave();
+}
+
+function refreshChProgress(){
+  [['q','rq','rqt','qcc','pq','pqp'],['r','rr','rrt','rcc','pr','prp'],['e','re','ret','ecc','pe','pep'],['g','rg','rgt','gcc','pg','pgp']].forEach(([k,rid,tid,cnt,bid,bpid])=>{
+    const total = CHD[k].length;
+    const done = CHD[k].filter((_,i)=>ST['ch_'+k+'_'+i]==='1').length;
+    const pct = Math.round(done/total*100);
+    const offset = 163-(163*pct/100);
+    const ring = document.getElementById(rid);  if(ring) ring.style.strokeDashoffset=offset;
+    const txt  = document.getElementById(tid);  if(txt)  txt.textContent=pct+'%';
+    const cnt2 = document.getElementById(cnt);  if(cnt2) cnt2.textContent=done+' / '+total+(k==='g'?' topics':' chapters');
+    const bar  = document.getElementById(bid);  if(bar)  bar.style.width=pct+'%';
+    const bpct = document.getElementById(bpid); if(bpct) bpct.textContent=pct+'%';
+  });
+}
+
+function resetCh(){
+  if(!confirm('Reset ALL chapter progress?')) return;
+  ['q','r','e','g'].forEach(k=>CHD[k].forEach((_,i)=>delete ST['ch_'+k+'_'+i]));
+  renderCh();
+  scheduleSave();
+}
+
+// ══════════════════════════════════════════════════════
+// MOCK SCORES
+// ══════════════════════════════════════════════════════
+function addMock(){
+  const input = document.getElementById('mkinput');
+  const val = parseInt(input.value);
+  if(isNaN(val)||val<0||val>200){
+    input.style.borderColor='var(--red)';
+    setTimeout(()=>input.style.borderColor='',1000); return;
+  }
+  const mocks = ST.mocks||[];
+  mocks.push({ s: val, d: new Date().toLocaleDateString('en-IN',{day:'numeric',month:'short'}) });
+  ST.mocks = mocks;
+  input.value = '';
+  renderMocks();
+  scheduleSave();
+}
+
+function clearMocks(){
+  if(!confirm('Clear all mock scores?')) return;
+  ST.mocks=[];
+  renderMocks();
+  scheduleSave();
+}
+
+function renderMocks(){
+  const mocks = ST.mocks||[];
+  const el = document.getElementById('mklist');
+  const tr = document.getElementById('mktrend');
+  if(!mocks.length){
+    el.innerHTML='<span style="color:var(--dim2);font-family:\'Share Tech Mono\';font-size:.7rem;">No scores logged yet.</span>';
+    tr.innerHTML=''; return;
+  }
+  el.innerHTML = mocks.map((m,i)=>{
+    const c = m.s>=170?'var(--g3)':m.s>=160?'var(--glow)':m.s>=145?'var(--g2)':'var(--red)';
+    const b = m.s>=170?'🏆':m.s>=160?'⚡':m.s>=145?'✓':'⚠';
+    return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;border-bottom:1px solid rgba(13,34,64,.4)">
+      <span style="font-family:'Share Tech Mono';font-size:.6rem;color:var(--dim2);width:20px">#${i+1}</span>
+      <span style="font-family:'Share Tech Mono';font-size:.6rem;color:var(--dim2);width:46px">${m.d}</span>
+      <div style="flex:1;background:rgba(0,0,0,.3);border-radius:2px;height:5px"><div style="width:${m.s/2}%;height:100%;background:${c};border-radius:2px"></div></div>
+      <span style="font-family:'Orbitron';font-size:.78rem;font-weight:700;color:${c};width:38px;text-align:right">${m.s}</span>
+      <span>${b}</span></div>`;
+  }).join('');
+  if(mocks.length>=2){
+    const avg = Math.round(mocks.reduce((a,m)=>a+m.s,0)/mocks.length);
+    const d = mocks[mocks.length-1].s - mocks[mocks.length-2].s;
+    tr.innerHTML=`<span style="color:var(--dim2)">AVG </span><span style="color:var(--glow)">${avg}</span> &nbsp; <span style="color:var(--dim2)">TREND </span><span style="color:${d>=0?'var(--g3)':'var(--red)'}">${d>=0?'▲':'▼'}${Math.abs(d)}</span> &nbsp; <span style="color:var(--dim2)">BEST </span><span style="color:var(--gold)">${Math.max(...mocks.map(m=>m.s))}</span>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════
+// COUNTDOWN
+// ══════════════════════════════════════════════════════
+function updateCountdown(){
+  const exam = new Date('2025-07-20');
+  const diff = Math.ceil((exam - new Date())/(1000*60*60*24));
+  const el = document.getElementById('cnt');
+  if(el) el.textContent = diff>0 ? diff : 'EXAM DAY';
+}
+
+// ══════════════════════════════════════════════════════
+// BOOT
+// ══════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', async ()=>{
+  await initialLoad();       // fetch from GitHub (or use local)
+  renderCh();                // render chapter checkboxes from ST
+  loadTasks();               // restore task checkboxes
+  refreshHeader();           // update progress bars + counts
+  renderMocks();             // render mock score log
+  updateBanners();           // show/hide setup banner
+  updateCountdown();
+  setInterval(updateCountdown, 60000);
+});
+</script>
+</body>
+</html>
